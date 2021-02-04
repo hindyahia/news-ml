@@ -181,9 +181,9 @@
                                 <span class="menu-text">{{__('cp.home')}}</span>
                             </a>
                         </li>
-                        <li class="menu-item {{request()->fullUrlIs(url('admin/projects*'))? "menu-item-here" : ''}}"
+                        <li class="menu-item {{request()->fullUrlIs(url('admin/users*'))? "menu-item-here" : ''}}"
                             aria-haspopup="true">
-                            <a href="{{route('admin.projects.index')}}" class="menu-link">
+                            <a href="{{route('admin.users.index')}}" class="menu-link">
                                             <span class="svg-icon menu-icon">
                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -201,12 +201,12 @@
                                                 </svg>
                                                 <!--end::Svg Icon-->
                                             </span>
-                                <span class="menu-text">{{__('cp.projects_management')}}</span>
+                                <span class="menu-text">{{__('cp.users_management')}}</span>
                             </a>
                         </li>
-                        <li class="menu-item {{request()->fullUrlIs(url('admin/mediators*'))? "menu-item-here" : ''}}"
+                        <li class="menu-item {{request()->fullUrlIs(url('admin/categories*'))? "menu-item-here" : ''}}"
                             aria-haspopup="true">
-                            <a href="{{route('admin.mediators.index')}}" class="menu-link">
+                            <a href="{{route('admin.categories.index')}}" class="menu-link">
                                             <span class="svg-icon menu-icon">
                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -224,290 +224,9 @@
                                                 </svg>
                                                 <!--end::Svg Icon-->
                                             </span>
-                                <span class="menu-text">{{__('cp.mediators')}}</span>
+                                <span class="menu-text">{{__('cp.categories_management')}}</span>
                             </a>
                         </li>
-                        <li class="menu-item {{request()->fullUrlIs(url('admin/delegates*'))? "menu-item-here" : ''}}"
-                            aria-haspopup="true">
-                            <a href="{{route('admin.delegates.index')}}" class="menu-link">
-                                            <span class="svg-icon menu-icon">
-                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                     height="24px" viewBox="0 0 24 24" version="1.1">
-                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24"/>
-                                                    <path
-                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
-                                                        fill="#000000"/>
-                                                    <path
-                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
-                                                        fill="#000000" opacity="0.3"/>
-                                                </g>
-                                                </svg>
-                                                <!--end::Svg Icon-->
-                                            </span>
-                                <span class="menu-text">{{__('cp.delegates')}}</span>
-                            </a>
-                        </li>
-                        <li class="menu-item {{request()->fullUrlIs(url('admin/benefactors*'))? "menu-item-here" : ''}}"
-                            aria-haspopup="true">
-                            <a href="{{route('admin.benefactors.index')}}" class="menu-link">
-                                            <span class="svg-icon menu-icon">
-                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                     height="24px" viewBox="0 0 24 24" version="1.1">
-                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24"/>
-                                                    <path
-                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
-                                                        fill="#000000"/>
-                                                    <path
-                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
-                                                        fill="#000000" opacity="0.3"/>
-                                                </g>
-                                                </svg>
-                                                <!--end::Svg Icon-->
-                                            </span>
-                                <span class="menu-text">{{__('cp.benefactors')}}</span>
-                            </a>
-                        </li>
-                        <li class="menu-item {{request()->fullUrlIs(url('admin/tellers*'))? "menu-item-here" : ''}}"
-                            aria-haspopup="true">
-                            <a href="{{route('admin.tellers.index')}}" class="menu-link">
-                                            <span class="svg-icon menu-icon">
-                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                     height="24px" viewBox="0 0 24 24" version="1.1">
-                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24"/>
-                                                    <path
-                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
-                                                        fill="#000000"/>
-                                                    <path
-                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
-                                                        fill="#000000" opacity="0.3"/>
-                                                </g>
-                                                </svg>
-                                                <!--end::Svg Icon-->
-                                            </span>
-                                <span class="menu-text">{{__('cp.tellers')}}</span>
-                            </a>
-                        </li>
-                        <li class="menu-item {{request()->fullUrlIs(url('admin/promises*'))? "menu-item-here" : ''}}"
-                            aria-haspopup="true">
-                            <a href="{{route('admin.promises.index')}}" class="menu-link">
-                                            <span class="svg-icon menu-icon">
-                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                     height="24px" viewBox="0 0 24 24" version="1.1">
-                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24"/>
-                                                    <path
-                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
-                                                        fill="#000000"/>
-                                                    <path
-                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
-                                                        fill="#000000" opacity="0.3"/>
-                                                </g>
-                                                </svg>
-                                                <!--end::Svg Icon-->
-                                            </span>
-                                <span class="menu-text">{{__('cp.promises_management')}}</span>
-                            </a>
-                        </li>
-                        <li class="menu-item {{request()->fullUrlIs(url('admin/donations*'))? "menu-item-here" : ''}}"
-                            aria-haspopup="true">
-                            <a href="{{route('admin.donations.index')}}" class="menu-link">
-                                            <span class="svg-icon menu-icon">
-                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                     height="24px" viewBox="0 0 24 24" version="1.1">
-                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24"/>
-                                                    <path
-                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
-                                                        fill="#000000"/>
-                                                    <path
-                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
-                                                        fill="#000000" opacity="0.3"/>
-                                                </g>
-                                                </svg>
-                                                <!--end::Svg Icon-->
-                                            </span>
-                                <span class="menu-text">{{__('cp.donations_management')}}</span>
-                            </a>
-                        </li>
-                        <li class="menu-item {{request()->fullUrlIs(url('admin/fromDtoT*'))? "menu-item-here" : ''}}"
-                            aria-haspopup="true">
-                            <a href="{{route('admin.fromDtoT.index')}}" class="menu-link">
-                                            <span class="svg-icon menu-icon">
-                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                     height="24px" viewBox="0 0 24 24" version="1.1">
-                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24"/>
-                                                    <path
-                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
-                                                        fill="#000000"/>
-                                                    <path
-                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
-                                                        fill="#000000" opacity="0.3"/>
-                                                </g>
-                                                </svg>
-                                                <!--end::Svg Icon-->
-                                            </span>
-                                <span class="menu-text">{{__('cp.fromDtoT')}}</span>
-                            </a>
-                        </li>
-                        <li class="menu-item {{request()->fullUrlIs(url('admin/fromTtoBraa*'))? "menu-item-here" : ''}}"
-                            aria-haspopup="true">
-                            <a href="{{route('admin.fromTtoBraa.index')}}" class="menu-link">
-                                            <span class="svg-icon menu-icon">
-                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                     height="24px" viewBox="0 0 24 24" version="1.1">
-                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24"/>
-                                                    <path
-                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
-                                                        fill="#000000"/>
-                                                    <path
-                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
-                                                        fill="#000000" opacity="0.3"/>
-                                                </g>
-                                                </svg>
-                                                <!--end::Svg Icon-->
-                                            </span>
-                                <span class="menu-text">{{__('cp.fromTtoBraa')}}</span>
-                            </a>
-                        </li>
-                        <li class="menu-item {{request()->fullUrlIs(url('admin/fromBraatoAccountant*'))? "menu-item-here" : ''}}"
-                            aria-haspopup="true">
-                            <a href="{{route('admin.fromBraatoAccountant.index')}}" class="menu-link">
-                                            <span class="svg-icon menu-icon">
-                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                     height="24px" viewBox="0 0 24 24" version="1.1">
-                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24"/>
-                                                    <path
-                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
-                                                        fill="#000000"/>
-                                                    <path
-                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
-                                                        fill="#000000" opacity="0.3"/>
-                                                </g>
-                                                </svg>
-                                                <!--end::Svg Icon-->
-                                            </span>
-                                <span class="menu-text">{{__('cp.fromBraatoAccountant')}}</span>
-                            </a>
-                        </li>
-                        <li class="menu-item {{request()->fullUrlIs(url('admin/fromBraatoGaith*'))? "menu-item-here" : ''}}"
-                            aria-haspopup="true">
-                            <a href="{{route('admin.fromBraatoGaith.index')}}" class="menu-link">
-                                            <span class="svg-icon menu-icon">
-                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                     height="24px" viewBox="0 0 24 24" version="1.1">
-                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24"/>
-                                                    <path
-                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
-                                                        fill="#000000"/>
-                                                    <path
-                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
-                                                        fill="#000000" opacity="0.3"/>
-                                                </g>
-                                                </svg>
-                                                <!--end::Svg Icon-->
-                                            </span>
-                                <span class="menu-text">{{__('cp.fromBraatoGaith')}}</span>
-                            </a>
-                        </li>
-                        <li class="menu-item menu-item-submenu    {{request()->routeIs('admin.reports.*')? "menu-item-open menu-item-here" : ''}}"
-                            aria-haspopup="true" data-menu-toggle="hover">
-                            <a href="javascript:;" class="menu-link menu-toggle">
-										     <span class="svg-icon menu-icon">
-                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                     height="24px" viewBox="0 0 24 24" version="1.1">
-                                                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24"/>
-                                                    <path
-                                                        d="M3,4 L20,4 C20.5522847,4 21,4.44771525 21,5 L21,7 C21,7.55228475 20.5522847,8 20,8 L3,8 C2.44771525,8 2,7.55228475 2,7 L2,5 C2,4.44771525 2.44771525,4 3,4 Z M3,10 L13,10 C13.5522847,10 14,10.4477153 14,11 L14,13 C14,13.5522847 13.5522847,14 13,14 L3,14 C2.44771525,14 2,13.5522847 2,13 L2,11 C2,10.4477153 2.44771525,10 3,10 Z M3,16 L13,16 C13.5522847,16 14,16.4477153 14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L3,20 C2.44771525,20 2,19.5522847 2,19 L2,17 C2,16.4477153 2.44771525,16 3,16 Z"
-                                                        fill="#000000"/>
-                                                    <rect fill="#000000" opacity="0.3" x="16" y="10" width="5"
-                                                          height="10" rx="1"/>
-                                                </g>
-                                                </svg>
-                                                 <!--end::Svg Icon-->
-                                            </span>
-                                <span class="menu-text">{{__('cp.reports')}}</span>
-                                <i class="menu-arrow"></i>
-                            </a>
-                            <div class="menu-submenu" kt-hidden-height="80"
-                                 style=" {{request()->routeIs('admin.reports.*')? " " : 'display: none; '}} overflow: hidden;">
-                                <i class="menu-arrow"></i>
-                                <ul class="menu-subnav">
-                                    <li class="menu-item menu-item-parent" aria-haspopup="true">
-												<span class="menu-link">
-													<span
-                                                        class="menu-text">{{__('cp.reports')}}</span>
-												</span>
-                                    </li>
-                                    <li class="menu-item  {{request()->fullUrlIs(route('admin.reports.index','teller'))? "menu-item-active" : ''}}"
-                                        aria-haspopup="true">
-                                        <a href="{{route('admin.reports.index','teller')}}" class="menu-link ">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">{{__('cp.rFromTtoBraa')}}</span>
-                                        </a>
-                                    </li>
-                                   <li class="menu-item  {{request()->fullUrlIs(route('admin.reports.index','FromBraaToAccountant'))? "menu-item-active" : ''}}"
-                                        aria-haspopup="true">
-                                        <a href="{{route('admin.reports.index','FromBraaToAccountant')}}" class="menu-link ">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">{{__('cp.rFromBraatoAccountant')}}</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item  {{request()->fullUrlIs(route('admin.reports.index','FromBraaToGaith'))? "menu-item-active" : ''}}"
-                                        aria-haspopup="true">
-                                        <a href="{{route('admin.reports.index','FromBraaToGaith')}}" class="menu-link ">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">{{__('cp.rFromBraatoGaith')}}</span>
-                                        </a>
-                                    </li>
-                                    <li class="menu-item  {{request()->fullUrlIs(route('admin.reports.index','commission'))? "menu-item-active" : ''}}"
-                                        aria-haspopup="true">
-                                        <a href="{{route('admin.reports.index','commission')}}" class="menu-link ">
-                                            <i class="menu-bullet menu-bullet-dot">
-                                                <span></span>
-                                            </i>
-                                            <span class="menu-text">{{__('cp.commission')}}</span>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </li>
-
-
                     </ul>
                     <!--end::Menu Nav-->
                 </div>
@@ -552,10 +271,11 @@
                                  id="kt_quick_user_toggle">
                                 {{-- <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1"></span> --}}
                                 <span
-                                    class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{auth()->user()->name }}</span>
+                                    class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">name</span>
+
                                 {{--										<span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{auth()->user()->name}}</span>--}}
                                 <span class="symbol symbol-35 symbol-light-success">
-											<span class="symbol-label font-size-h5 font-weight-bold">{{substr(auth()->user()->name,0,2) }}</span>
+											<span class="symbol-label font-size-h5 font-weight-bold">name</span>
 										</span>
                             </div>
                         </div>

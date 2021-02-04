@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Keyword;
+use App\Http\Controllers\Controller;
+use App\Models\Content;
 use Illuminate\Http\Request;
 
-class KeywordController extends Controller
+class ContentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class KeywordController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Keyword  $keyword
+     * @param  \App\Models\Content  $content
      * @return \Illuminate\Http\Response
      */
-    public function show(Keyword $keyword)
+    public function show(Content $content)
     {
         //
     }
@@ -52,10 +53,10 @@ class KeywordController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Keyword  $keyword
+     * @param  \App\Models\Content  $content
      * @return \Illuminate\Http\Response
      */
-    public function edit(Keyword $keyword)
+    public function edit(Content $content)
     {
         //
     }
@@ -64,10 +65,10 @@ class KeywordController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Keyword  $keyword
+     * @param  \App\Models\Content  $content
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Keyword $keyword)
+    public function update(Request $request, Content $content)
     {
         //
     }
@@ -75,10 +76,10 @@ class KeywordController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Keyword  $keyword
+     * @param  \App\Models\Content  $content
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Keyword $keyword)
+    public function destroy(Content $content)
     {
         //
     }

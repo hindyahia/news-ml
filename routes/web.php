@@ -13,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::redirect('/', '/admin');
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+    //->middleware('auth')
+    Route::get('/', 'AppController@index')->name('home');
+    Route::post('/changeStatus/{model}', 'AppController@changeStatus');
+    Route::resource('users', 'UserController');
+    Route::resource('categories', 'CategoryController');
+});
