@@ -53,6 +53,11 @@ return [
     'users_management' => 'إدارة المستخدمين',
     'allow_add_content' => 'السماح لإضافة أخبار',
     'categories_management' => 'إدارة التصنيفات',
+    'keywords_management' => 'إدارة الكلمات الفتاحية',
     'add_user' => 'إضافة مستخدم',
     'add_category' => 'إضافة تصنيف',
+    'category' => 'التصنيف',
+    'keyword' => 'الكلمات المفتاحية',
+    'image' => 'الصورة',
+    'status' => 'الحالة',
 ];

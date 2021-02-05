@@ -20,5 +20,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', 'AppController@index')->name('home');
     Route::post('/changeStatus/{model}', 'AppController@changeStatus');
     Route::resource('users', 'UserController');
+    Route::resource('contents', 'ContentController');
+    Route::resource('keywords', 'KeywordController');
     Route::resource('categories', 'CategoryController');
 });
