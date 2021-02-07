@@ -23,7 +23,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('admins', 'AdminsController')->parameters([
         'admins' => 'user',
     ]);;
+    Route::resource('contents', 'ContentController');
     Route::resource('categories', 'CategoryController');
     Route::resource('keywords', 'KeywordController');
+    Route::post('Keywords/reset/{Keyword}', 'KeywordController@resetKeywords')->name('Keywords.reset');
     Route::resource('blocked-keywords', 'BlockedKeywordController');
 });

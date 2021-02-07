@@ -78,7 +78,7 @@
                                     <th> {{ucwords(__('cp.email'))}}</th>
                                     <th> {{ucwords(__('cp.mobile'))}}</th>
                                     <th> {{ucwords(__('cp.status'))}}</th>
-                                    <th> {{ucwords(__('cp.allow'))}}</th>
+{{--                                    <th> {{ucwords(__('cp.allow'))}}</th>--}}
                                     <th> {{ucwords(__('cp.action'))}}</th>
                                 </tr>
                                 </thead>
@@ -95,8 +95,11 @@
                                         <td> {{$item->name}}</td>
                                         <td> {{$item->email}}</td>
                                         <td> {{$item->mobile}}</td>
-                                        <td> {{$item->status}}</td>
-                                        <td> {{$item->allow}}</td>
+                                        <td> <span class="badge badge-{{$item->status == "active" ?'success':"danger"}}">
+                                                @lang("cp.$item->status")
+                                            </span>
+                                            </td>
+{{--                                        <td> {{$item->allow}}</td>--}}
                                         <td>
                                             <div class="btn-group btn-action">
                                                 <a href="{{route('admin.users.edit',$item->id)}}"

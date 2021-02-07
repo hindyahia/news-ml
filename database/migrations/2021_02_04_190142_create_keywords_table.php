@@ -18,7 +18,6 @@ class CreateKeywordsTable extends Migration
             $table->string('title');
             $table->integer('status')->default(1)->comment('1 => not processed , 2 => in processing , 3 => processed');
             $table->foreignId('user_id')->nullable()->constrained();
-            $table->boolean('from_admin')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

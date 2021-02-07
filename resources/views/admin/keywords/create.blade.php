@@ -10,7 +10,11 @@
                 <!--begin::Info-->
                 <div class="d-flex align-items-center flex-wrap mr-1">
                     <div class="d-flex align-items-baseline mr-5">
+<<<<<<< HEAD
                         <h3>{{__('cp.add_keywords')}}</h3>
+=======
+                        <h3>{{__('cp.add_keyword')}}</h3>
+>>>>>>> origin/main
                     </div>
                 </div>
                 <!--end::Info-->
@@ -41,9 +45,12 @@
                                         <input type="text" class="form-control form-control-solid"
                                                name="title"
                                                value="{{ old('title')}}" required/>
+
                                     </div>
                                 </div>
                             </div>
+
+
                         </div>
                         <button type="submit" id="submitForm" style="display:none"></button>
                     </form>

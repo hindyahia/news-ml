@@ -55,6 +55,7 @@ return [
     'admins_management' => 'إدارة الأدمن',
     'allow_add_content' => 'السماح لإضافة أخبار',
     'categories_management' => 'إدارة التصنيفات',
+//    'keywords_management' => 'إدارة الكلمات الفتاحية',
     'add_user' => 'إضافة مستخدم',
     'add_admin' => 'إضافة أدمن',
     'add_category' => 'إضافة تصنيف',
@@ -68,8 +69,19 @@ return [
 
     /**keywords management**/
     'add_keywords' => 'إضافة كلمة دلالية',
+    'add_content' => 'إضافة خبر',
+    'content' => 'المحتوى',
+    'description' => 'الوصف',
+//    'contents' => 'إدارة الأخبار',
+    'contents_management' => 'إدارة الأخبار',
     'keywords_management' => 'إدارة الكلمات الدلالية',
     'blocked_keywords_management' => 'إدارة حظر الكلمات الدلالية',
 
-
+    'category' => 'التصنيف',
+    'keyword' => 'الكلمات المفتاحية',
+    'image' => 'الصورة',
+    'not_processed' => 'لم يتم معالجتها',
+    'in_processing' => 'قيد المعالجة',
+    'processed' => 'تمت المعالجة',
+    'reprocessed' => 'إعادة المعالجة',
 ];
