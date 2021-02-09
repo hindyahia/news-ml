@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKeywordsTable extends Migration
+class CreateBlockedKeywordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateKeywordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('keywords', function (Blueprint $table) {
+        Schema::create('blocked_keywords', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->integer('status')->default(1)->comment('1 => not processed , 2 => in processing , 3 => processed');
-            $table->foreignId('user_id')->nullable()->constrained();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +28,6 @@ class CreateKeywordsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('keywords');
+        Schema::dropIfExists('blocked_keywords');
     }
 }

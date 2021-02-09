@@ -1,5 +1,5 @@
 @extends('layout.adminLayout')
-@section('title') {{ucwords(__('cp.keywords_management'))}}
+@section('title') {{ucwords(__('cp.blocked_keywords_management'))}}
 @endsection
 @section('css')
 @endsection
@@ -11,7 +11,7 @@
                 <!--begin::Info-->
                 <div class="d-flex align-items-center flex-wrap mr-1">
                     <div class="d-flex align-items-baseline mr-5">
-                        <h3>{{ucwords(__('cp.keywords_management'))}}</h3>
+                        <h3>{{ucwords(__('cp.blocked_keywords_management'))}}</h3>
                     </div>
                 </div>
                 <!--end::Info-->
@@ -20,7 +20,7 @@
 
                 <div class="btn-group mb-2 m-md-3 mt-md-0 ml-2 ">
 
-                    <a href="{{route('admin.keywords.create')}}" style="margin-right: 5px"
+                    <a href="{{route('admin.blocked-keywords.create')}}" style="margin-right: 5px"
                        class="btn btn-success"><i class="fa fa-plus"></i>{{__('cp.add')}}
                     </a>
 
@@ -75,7 +75,6 @@
 
                                     </th>
                                     <th> {{ucwords(__('cp.title'))}}</th>
-                                    <th> {{ucwords(__('cp.status'))}}</th>
                                     <th> {{ucwords(__('cp.action'))}}</th>
                                 </tr>
                                 </thead>
@@ -91,26 +90,12 @@
                                         </td>
                                         <td> {{$item->title}}</td>
                                         <td>
-                                                <span class="badge badge-{{$item->status == 1 ?'warning' :($item->status == 2 ?"info" :"success" )}}">
-
-                                                @lang("cp.".\App\Models\Keyword::Status[$item->status])
-                                                </span>
-                                        </td>
-                                        <td>
                                             <div class="btn-group btn-action">
-                                                <a href="{{route('admin.keywords.edit',$item->id)}}"
+                                                <a href="{{route('admin.categories.edit',$item->id)}}"
                                                    class="btn btn-xs btn-icon btn-clean blue tooltips"
                                                    data-container="body" data-placement="top"
                                                    data-original-title="{{__('cp.edit')}}"><i
                                                         class="fa fa-edit"></i></a>
-                                                <form method="post" action="{{route('admin.Keywords.reset',$item->id)}}">
-                                                    @csrf
-                                                    <button
-                                                       class="btn btn-xs btn-icon btn-clean blue tooltips"
-                                                       data-container="body" data-placement="top"
-                                                       data-original-title="{{__('cp.reprocessed')}}"><i
-                                                            class="fa fa-recycle"></i></button>
-                                                </form>
                                             </div>
                                         </td>
                                     </tr>

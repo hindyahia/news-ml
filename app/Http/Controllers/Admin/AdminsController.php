@@ -9,24 +9,24 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
-class UserController extends Controller
+class AdminsController extends Controller
 {
 
     public function __construct()
     {
-        $this->route = "users";
-        $this->path = "admin.users";
+        $this->route = "admins";
+        $this->path = "admin.admins";
     }
 
     public function index(Request $request)
     {
-        $users = User::latest()->where('is_admin',false);
+        $users = User::latest()->where('is_admin', true);
 
         if (\request()->filled('email'))
-            $users->where('email','like', "%$request->email%");
+            $users->where('email', 'like', "%$request->email%");
 
         if (\request()->filled('mobile'))
-            $users->where('mobile','like', "%$request->mobile%");
+            $users->where('mobile', 'like', "%$request->mobile%");
 
         if (\request()->filled('statusUser'))
             $users->where('status', $request->statusUser);
@@ -48,7 +48,7 @@ class UserController extends Controller
         $data = $request->validated();
         $data = Arr::except($data, ['confirm_password']);
         $data['password'] = bcrypt($data['password']);
-        $data['allow'] = $request->boolean('allow');
+        $data['is_admin'] = true;
         User::create($data);
         return redirect()->back()->with('status', __('cp.create'));
     }
@@ -70,7 +70,6 @@ class UserController extends Controller
     public function update(UserRequest $request, User $user)
     {
         $data = $request->validated();
-        $data['allow'] = $request->boolean('allow');
         $user->update($data);
         return redirect()->back()->with('status', __('cp.update'));
     }

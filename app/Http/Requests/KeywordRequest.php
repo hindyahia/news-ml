@@ -23,11 +23,8 @@ class KeywordRequest extends FormRequest
      */
     public function rules()
     {
-        $is_required = $this->_method ? 'nullable' : 'required';
-
         return [
             'title' => 'required|string',
-            'status' => 'nullable',
         ];
     }
 }

@@ -20,7 +20,12 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', 'AppController@index')->name('home');
     Route::post('/changeStatus/{model}', 'AppController@changeStatus');
     Route::resource('users', 'UserController');
+    Route::resource('admins', 'AdminsController')->parameters([
+        'admins' => 'user',
+    ]);;
     Route::resource('contents', 'ContentController');
-    Route::resource('keywords', 'KeywordController');
     Route::resource('categories', 'CategoryController');
+    Route::resource('keywords', 'KeywordController');
+    Route::post('Keywords/reset/{Keyword}', 'KeywordController@resetKeywords')->name('Keywords.reset');
+    Route::resource('blocked-keywords', 'BlockedKeywordController');
 });

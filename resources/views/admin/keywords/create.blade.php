@@ -10,7 +10,11 @@
                 <!--begin::Info-->
                 <div class="d-flex align-items-center flex-wrap mr-1">
                     <div class="d-flex align-items-baseline mr-5">
+<<<<<<< HEAD
+                        <h3>{{__('cp.add_keywords')}}</h3>
+=======
                         <h3>{{__('cp.add_keyword')}}</h3>
+>>>>>>> origin/main
                     </div>
                 </div>
                 <!--end::Info-->
@@ -40,25 +44,13 @@
                                         <label>{{__('cp.title')}} <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control form-control-solid"
                                                name="title"
-                                               value="{{ old('title', @$item->title)}}" required/>
+                                               value="{{ old('title')}}" required/>
+
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>{{__('cp.status')}} <span class="text-danger">*</span></label>
-                                        <div class="col-3">
-                                            <span class="switch switch-outline switch-icon switch-primary">
-                                                <label>
-                                                    <input type="checkbox" {{ old('status',  @$item->status)  == 1 ? 'checked' : ''}} name="status">
-                                                    <span></span>
-                                                 </label>
-                                             </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+
                         </div>
                         <button type="submit" id="submitForm" style="display:none"></button>
                     </form>

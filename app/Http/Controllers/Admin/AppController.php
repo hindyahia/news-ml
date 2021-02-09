@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Keyword;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
     public function index()
     {
-        return view('admin.home.home');
+        $data['keywords']  = Keyword::where(['status'=>3,'user_id'=>auth()->id()])->get();
+        return view('admin.home.home')->with($data);
     }
 
     public function changeStatus($model, Request $request)

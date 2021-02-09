@@ -1,77 +1,71 @@
-@extends('layouts.app')
+@extends('auth.auth_layout')
+@section('title' ,__('cp.register') )
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <form class="form" method="post" action="{{ route('register') }}" novalidate="novalidate"
+          id="kt_login_signin_form">
+        <!--begin::Title-->
+        @csrf
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="pb-13 pt-lg-0 pt-5 text-right" >
+            <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg text-center">@lang('cp.welcome')</h3>
+            <span class="text-muted font-weight-bold font-size-h4">@lang("cp.I_have_account ?")
+									<a href="{{route('login')}}" id="kt_login_signup" class="text-primary font-weight-bolder">@lang("cp.login")</a></span>
         </div>
-    </div>
-</div>
+        <!--begin::Title-->
+        <!--begin::Form group-->
+        <div class="form-group text-right">
+            <label class="font-size-h6 font-weight-bolder text-dark">@lang('cp.name')</label>
+            <input class="form-control form-control-solid h-auto py-7 px-6 text-right rounded-lg"
+                   type="text" required value="{{old('name')}}" name="name" autocomplete="off"/>
+        </div>
+        <!--end::Form group-->
+        <!--begin::Form group-->
+        <div class="form-group text-right">
+            <label class="font-size-h6 font-weight-bolder text-dark">@lang('cp.mobile')</label>
+            <input class="form-control form-control-solid h-auto py-7 px-6 text-right rounded-lg"
+                   type="text" required value="{{old('mobile')}}" name="mobile" autocomplete="off"/>
+        </div>
+        <!--end::Form group-->
+        <!--begin::Form group-->
+        <div class="form-group text-right">
+            <label class="font-size-h6 font-weight-bolder text-dark">@lang('cp.email')</label>
+            <input class="form-control form-control-solid h-auto py-7 px-6 text-right rounded-lg"
+                   type="email" required value="{{old('email')}}" name="email" autocomplete="off"/>
+        </div>
+        <!--end::Form group-->
+        <!--begin::Form group-->
+        <div class="form-group text-right">
+            <div class="d-flex justify-content-end mt-n5 text-right">
+                <label
+                    class="font-size-h6 font-weight-bolder text-dark pt-5 ">@lang('cp.password')</label>
+                {{--                                <a href="javascript:;" class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5" id="kt_login_forgot">@lang('cp.forget_password') ?</a>--}}
+            </div>
+            <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg text-right"
+                   type="password" name="password" required autocomplete="off"/>
+        </div>
+        <!--end::Form group-->
+        <!--begin::Form group-->
+        <div class="form-group text-right">
+            <div class="d-flex justify-content-end mt-n5 text-right">
+                <label
+                    class="font-size-h6 font-weight-bolder text-dark pt-5 ">@lang('cp.confirm_password')</label>
+                {{--                                <a href="javascript:;" class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5" id="kt_login_forgot">@lang('cp.forget_password') ?</a>--}}
+            </div>
+            <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg text-right"
+                   type="password" name="password_confirmation" required autocomplete="off"/>
+        </div>
+        <!--end::Form group-->
+        <!--begin::Action-->
+        <div class="pb-lg-0 pb-5">
+            <button type="submit"
+
+                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">@lang('cp.register')</button>
+            {{--                            <button type="button" id="kt_login_signin_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">@lang('cp.Sign_in')</button>--}}
+
+        </div>
+        <!--end::Action-->
+    </form>
+
 @endsection
+
