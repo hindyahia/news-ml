@@ -1,0 +1,66 @@
+
+body,h1, h2, h3, h4, h5, h6, label , span , a, textarea, p {
+	font-family: 'Cairo', sans-serif;
+	direction: rtl;
+}
+.owl-carousel , .owl-wrapper-outer{
+	direction: ltr;
+}
+
+.navbar-collapse.right {
+            float:left;
+}
+/*.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {*/
+/*float:right;*/
+	/*}*/
+	/* .owl-carousel .owl-wrapper-outer{
+		float:right;
+
+	}
+	.owl-carousel .owl-wrapper, .owl-carousel .owl-item{
+		float:right;
+
+	} */
+    /*.owl-carousel .owl-item {*/
+        /*float:right;*/
+
+    /*}*/
+
+
+#top ul.menu{
+    text-align:left;
+}
+.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+            float:right;
+
+}
+.navbar-nav > li {
+	        float:right;
+
+}
+.dropdown-menu {
+	font-size: 14px;
+
+text-align: right;
+
+list-style: none;
+}
+.pull-left{
+		        float:right !important;
+
+}
+#content .panel.sidebar-menu ul.nav ul{
+	padding-right:0;
+}
+#footer ul{
+	padding-right:0;
+}
+.navbar #search .navbar-form {
+	float:left;
+}
+.ribbon{
+	padding-right:105px;
+}
+.pull-right {
+	float:left !important;
+}
