@@ -91,17 +91,35 @@
                                         <td> {{$item->title}}</td>
                                         <td>
                                             <div class="btn-group btn-action">
-                                                <a href="{{route('admin.categories.edit',$item->id)}}"
+                                                <a href="{{route('admin.blocked-keywords.edit',$item->id)}}"
                                                    class="btn btn-xs btn-icon btn-clean blue tooltips"
                                                    data-container="body" data-placement="top"
                                                    data-original-title="{{__('cp.edit')}}"><i
                                                         class="fa fa-edit"></i></a>
-                                            </div>
-                                        </td>
+                                                <a data-action-url="{{route('admin.blocked-keywords.destroy',$item->id)}}"
+                                                    class="btn btn-xs btn-icon btn-clean blue tooltips"
+                                                   data-container="body" data-placement="top" data-action="delete"
+                                                   data-original-title="{{__('cp.delete')}}"><i
+                                                        class="fa fa-trash"></i></a>
+                                            </td>
                                     </tr>
 
                                 @empty
                                     <tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                         <td class="text-center lead  " colspan="8">
                                             {{__('cp.no')}} </td>
                                     </tr>

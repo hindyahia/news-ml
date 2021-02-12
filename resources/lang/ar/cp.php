@@ -22,6 +22,7 @@ return [
     'from_date'=>'من تاريخ',
     'to_date'=>'إلي تاريخ',
     'user_edit' => 'تعديل المستخدم',
+    'edit_profile' => 'تعديل الملف الشخصي',
     'name' => 'الاسم ',
     'profile_image' => 'الصورة الشخصية',
     'user' => 'مستخدم',
@@ -65,6 +66,8 @@ return [
     "don't_have_account?" => 'لا تمتلك حساب ؟',
     "I_have_account ?" => 'أمتلك حساب ؟',
     "create_an_account" => 'إنشاء حساب جديد',
+    "confirmDelete" => 'هل تريد حذف العنصر ؟',
+    "confirm" => 'تاكيد',
 
 
     /**keywords management**/
@@ -84,4 +87,7 @@ return [
     'in_processing' => 'قيد المعالجة',
     'processed' => 'تمت المعالجة',
     'reprocessed' => 'إعادة المعالجة',
+    'confirmNotActiveAll' => ' هل تريد إلغاء تفعيل العناصر ؟',
+    'confirmActiveAll' => ' هل تريد تفعيل العناصر ؟',
+    'Yes' => 'نعم',
 ];

@@ -20,18 +20,22 @@
 
                 <div class="btn-group mb-2 m-md-3 mt-md-0 ml-2 ">
 
-                    <a href="{{route('admin.admins.create')}}" style="margin-right: 5px"
-                       class="btn btn-success"><i class="fa fa-plus"></i>{{__('cp.add')}}
+
+                    <a href="{{route('admin.admins.create')}}"
+                       class="btn btn-success  has-icon " ><i class="fa fa-plus"></i>{{__('cp.add')}}
                     </a>
 
-                    {{--                    <button type="button" class="btn btn-default has-icon event" href="#activation" role="button"  data-toggle="modal">--}}
-                    {{--                        <i class="fas fa-check"></i>--}}
-                    {{--                        <span>{{__('cp.active')}}</span>--}}
-                    {{--                    </button>--}}
-                    {{--                    <button type="button" class="btn btn-default  has-icon event" href="#cancel_activation" role="button"  data-toggle="modal">--}}
-                    {{--                        <i class="fas fa-times"></i>--}}
-                    {{--                        <span>{{__('cp.not_active')}}</span>--}}
-                    {{--                    </button>--}}
+
+                    <button type="button" class="btn btn-primary  has-icon event" href="#activation" role="button"
+                            data-toggle="modal">
+                        <i class="fas fa-check"></i>
+                        <span>{{__('cp.activation')}}</span>
+                    </button>
+                    <button type="button" class="btn btn-warning  has-icon event" href="#cancel_activation" role="button"
+                            data-toggle="modal">
+                        <i class="fas fa-times-circle"></i>
+                        <span>{{__('cp.cancel_activation')}}</span>
+                    </button>
                     <button type="button" class="btn btn-default  has-icon event" href="#deleteAll" role="button"
                             data-toggle="modal">
                         <i class="fas fa-trash"></i>
@@ -78,7 +82,7 @@
                                     <th> {{ucwords(__('cp.email'))}}</th>
                                     <th> {{ucwords(__('cp.mobile'))}}</th>
                                     <th> {{ucwords(__('cp.status'))}}</th>
-                                     <th> {{ucwords(__('cp.action'))}}</th>
+                                    <th> {{ucwords(__('cp.action'))}}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -94,14 +98,23 @@
                                         <td> {{$item->name}}</td>
                                         <td> {{$item->email}}</td>
                                         <td> {{$item->mobile}}</td>
-                                        <td> {{$item->status}}</td>
-                                         <td>
+                                        <td> <span  id="label-{{$item->id}}"
+                                                class="badge badge-{{$item->status == "active" ?'success':"danger"}}">
+                                                @lang("cp.$item->status")
+                                            </span>
+                                        </td>
+                                        <td>
                                             <div class="btn-group btn-action">
                                                 <a href="{{route('admin.admins.edit',$item->id)}}"
                                                    class="btn btn-xs btn-icon btn-clean blue tooltips"
                                                    data-container="body" data-placement="top"
                                                    data-original-title="{{__('cp.edit')}}"><i
                                                         class="fa fa-edit"></i></a>
+                                                <a data-action-url="{{route('admin.admins.destroy',$item->id)}}"
+                                                   class="btn btn-xs btn-icon btn-clean blue tooltips"
+                                                   data-container="body" data-placement="top" data-action="delete"
+                                                   data-original-title="{{__('cp.delete')}}"><i
+                                                        class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>

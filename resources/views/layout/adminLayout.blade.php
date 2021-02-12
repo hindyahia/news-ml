@@ -322,6 +322,58 @@
                             </a>
                         </li>
 
+                         <li class="menu-item {{request()->routeIs('admin.contents.*')? "menu-item-here" : ''}}"
+                            aria-haspopup="true">
+                            <a href="{{route('admin.edit-profile')}}" class="menu-link">
+                                            <span class="svg-icon menu-icon">
+                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24"/>
+                                                    <path
+                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
+                                                        fill="#000000"/>
+                                                    <path
+                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
+                                                        fill="#000000" opacity="0.3"/>
+                                                </g>
+                                                </svg>
+                                                <!--end::Svg Icon-->
+                                            </span>
+                                <span class="menu-text">{{__('cp.edit_profile')}}</span>
+{{--                                <a href="{{ route('admin.edit-profile') }}"--}}
+{{--                                   class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Edit profile</a>--}}
+{{--                                <a href="{{route('logout')}}"--}}
+{{--                                   class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>--}}
+                            </a>
+                        </li>
+
+                         <li class="menu-item {{request()->routeIs('admin.contents.*')? "menu-item-here" : ''}}"
+                            aria-haspopup="true">
+                            <a href="{{route('admin.contents.index')}}" class="menu-link">
+                                            <span class="svg-icon menu-icon">
+                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24"/>
+                                                    <path
+                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
+                                                        fill="#000000"/>
+                                                    <path
+                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
+                                                        fill="#000000" opacity="0.3"/>
+                                                </g>
+                                                </svg>
+                                                <!--end::Svg Icon-->
+                                            </span>
+                                <span class="menu-text">{{__('cp.contents_management')}}</span>
+                            </a>
+                        </li>
+
                     </ul>
                     <!--end::Menu Nav-->
                 </div>
@@ -365,13 +417,13 @@
                             <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2"
                                  id="kt_quick_user_toggle">
                                 {{-- <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1"></span> --}}
-                                <span
-                                    class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">name</span>
+{{--                                <span--}}
+{{--                                    class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">name</span>--}}
 
-                                {{--										<span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{auth()->user()->name}}</span>--}}
-                                <span class="symbol symbol-35 symbol-light-success">
-											<span class="symbol-label font-size-h5 font-weight-bold">name</span>
-										</span>
+                                										<span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{auth()->user()->name}}</span>
+{{--                                <span class="symbol symbol-35 symbol-light-success">--}}
+{{--											<span class="symbol-label font-size-h5 font-weight-bold">name</span>--}}
+{{--										</span>--}}
                             </div>
                         </div>
                         <!--end::User-->
@@ -461,9 +513,9 @@
                 <i class="symbol-badge bg-success"></i>
             </div>
             <div class="d-flex flex-column">
-                <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{"Admin Name"}}</a>
+                <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{auth()->user()->name}}</a>
                 {{--						<a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{auth()->user()->name}}</a>--}}
-                <div class="text-muted mt-1">Application Developer</div>
+{{--                <div class="text-muted mt-1">Application Developer</div>--}}
                 <div class="navi mt-2">
                     <a href="#" class="navi-item">
 								<span class="navi-link p-0 pb-2">
@@ -484,12 +536,12 @@
                                             <!--end::Svg Icon-->
 										</span>
 									</span>
-									<span class="navi-text text-muted text-hover-primary">{{"app@gmail.com"}}</span>
-{{--									<span class="navi-text text-muted text-hover-primary">{{auth()->user()->email}}</span>--}}
+{{--									<span class="navi-text text-muted text-hover-primary">{{"app@gmail.com"}}</span>--}}
+									<span class="navi-text text-muted text-hover-primary">{{auth()->user()->email}}</span>
 								</span>
                     </a>
                     {{--							<a href="{{ route('admin.admins.edit',auth()->user()->id) }}" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Edit profile</a>--}}
-                    <a href="{{ url('admin.admins.edit',1) }}"
+                    <a href="{{ route('admin.admins.edit',auth()->id()) }}"
                        class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Edit profile</a>
                     <a href="{{route('logout')}}"
                        class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
@@ -1107,6 +1159,12 @@
 @yield('js')
 @yield('script')
 <script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     function scrollTo(el, offeset) {
 
         var pos = (el && el.size() > 0) ? el.offset().top : 0;
@@ -1436,6 +1494,8 @@
         $(this).parents('.image_dev').find("input[type=file]").click();
 
     });
+
+
     $(document).on('click', '[data-action=delete]', function (event) {
         event.preventDefault();
         $this = $(this);
@@ -1453,7 +1513,7 @@
                     return;
                 }
 
-                $.post($($this).attr('data-action-url'), {_method: 'delete'}, function (response) {
+                $.post($($this).data('action-url'), {_method: 'delete'}, function (response) {
                     // $('.dataTable').DataTable().ajax.reload();
                     swal(response.message, '', 'success');
                     $this.parents('tr').hide(2000);
@@ -1485,13 +1545,22 @@
             $(this).remove();
         });
     });
+    $('.event').attr('disabled', 'disabled');
 
+    $("input:checkbox[name=chkBox]").on('change',function () {
+        if ($("input:checkbox[name=chkBox]:checked").length>0)
+        $('.event').attr('disabled', false);
+        else
+            $('.event').attr('disabled', 'disabled');
+
+    });
 
     $('.confirmAll').on('click', function (e) {
         e.preventDefault();
         var action = $(this).data('action');
 
-        var url = "{{ url('/admin/changeStatus/'.Request::segment(2)) }}";
+        var url = "{{ url('/changeStatus/'.Request::segment(1)) }}";
+        {{--var url = "{{ url('/admin/changeStatus/'.Request::segment(2)) }}";--}}
         var csrf_token = '{{csrf_token()}}';
         var IDsArray = [];
         $("input:checkbox[name=chkBox]:checked").each(function () {
@@ -1509,7 +1578,7 @@
                         //alert('fsvf');
                         $.each(IDsArray, function (index, value) {
                             $('#label-' + value).removeClass('badge-danger');
-                            $('#label-' + value).addClass('badge-info');
+                            $('#label-' + value).addClass('badge-success');
                             $r = '{{app()->getLocale()}}';
                             if ($r == 'ar') {
                                 $('#label-' + value).text('فعال ');
@@ -1555,7 +1624,9 @@
             alert('{{__('cp.not_selected')}}');
         }
     });
-
+    $(function () {
+        $('.tooltips,[data-toggle="tooltip"]').tooltip()
+    })
 </script>
 
 

@@ -101,8 +101,13 @@
                                                 <a href="{{route('admin.keywords.edit',$item->id)}}"
                                                    class="btn btn-xs btn-icon btn-clean blue tooltips"
                                                    data-container="body" data-placement="top"
-                                                   data-original-title="{{__('cp.edit')}}"><i
+                                                   data-original-title="{{__('cp.edit')}}"  data-title="{{__('cp.edit')}}"><i
                                                         class="fa fa-edit"></i></a>
+                                                <a data-action-url="{{route('admin.keywords.destroy',$item->id)}}"
+                                                   class="btn btn-xs btn-icon btn-clean blue tooltips"
+                                                   data-container="body" data-placement="top" data-action="delete"
+                                                   data-original-title="{{__('cp.delete')}}"><i
+                                                        class="fa fa-trash"></i></a>
                                                 <form method="post" action="{{route('admin.Keywords.reset',$item->id)}}">
                                                     @csrf
                                                     <button

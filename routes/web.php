@@ -14,15 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::redirect('/', '/admin');
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+Route::redirect('/', '/home');
+Route::namespace('Admin')
+    //->prefix('admin')
+    ->name('admin.')->group(function () {
     //->middleware('auth')
-    Route::get('/', 'AppController@index')->name('home');
+    Route::get('/home', 'AppController@index')->name('home');
+    Route::get('/edit-profile', 'UserController@editProfile')->name('edit-profile');
+    Route::post('/edit-profile', 'UserController@updateProfile');
+    Route::get('/edit-password', 'UserController@editPassword')->name('edit-password');
+    Route::post('/edit-password', 'UserController@updatePassword');
+
     Route::post('/changeStatus/{model}', 'AppController@changeStatus');
     Route::resource('users', 'UserController');
     Route::resource('admins', 'AdminsController')->parameters([
         'admins' => 'user',
-    ]);;
+    ]);
     Route::resource('contents', 'ContentController');
     Route::resource('categories', 'CategoryController');
     Route::resource('keywords', 'KeywordController');

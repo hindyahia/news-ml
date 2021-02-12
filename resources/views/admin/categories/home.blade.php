@@ -96,6 +96,11 @@
                                                    data-container="body" data-placement="top"
                                                    data-original-title="{{__('cp.edit')}}"><i
                                                         class="fa fa-edit"></i></a>
+                                                <a data-action-url="{{route('admin.categories.destroy',$item->id)}}"
+                                                   class="btn btn-xs btn-icon btn-clean blue tooltips"
+                                                   data-container="body" data-placement="top" data-action="delete"
+                                                   data-original-title="{{__('cp.delete')}}"><i
+                                                        class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>

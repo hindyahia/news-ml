@@ -19,6 +19,7 @@ class AppController extends Controller
 
         $models = [
             'users' => 'App\Models\User',
+            'admins' => 'App\Models\User',
         ];
 
 
