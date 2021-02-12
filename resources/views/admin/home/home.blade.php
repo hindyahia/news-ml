@@ -12,10 +12,11 @@
 @endsection
 @section('content')
 
-    @if(auth()->user()->is_admin)
         <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
             <div class="d-flex flex-column-fluid">
                 <div class="container">
+                    @if(!auth()->user()->is_admin)
+
                     <div class="row">
                         <div class="col-lg-12 col-xl-12 mb-5">
                             <div class="card card-custom wave wave-animate-fast">
@@ -142,10 +143,11 @@
                             </div>
                         </div>-->
                     </div>
+                    @endif
+
                 </div>
             </div>
         </div>
-    @endif
 
 @endsection
 @section('js')
