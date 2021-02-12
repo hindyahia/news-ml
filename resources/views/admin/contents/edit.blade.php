@@ -48,9 +48,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>{{__('cp.content')}} <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control form-control-solid"
-                                               name="content"
-                                               value="{{ old('content', @$item->content)}}" required/>
+                                        <textarea class="form-control form-control-solid" name="content" id="content" required>
+                                           {{ old('content', @$item->content)}}
+                                        </textarea>
                                     </div>
                                 </div>
                             </div>

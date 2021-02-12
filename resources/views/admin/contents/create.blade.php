@@ -40,7 +40,7 @@
                                         <label>{{__('cp.title')}} <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control form-control-solid"
                                                name="title"
-                                               value="{{ old('title', @$item->title)}}" required/>
+                                               value="{{ old('title')}}" required/>
                                     </div>
                                 </div>
                             </div>
@@ -48,9 +48,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>{{__('cp.content')}} <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control form-control-solid"
-                                               name="content"
-                                               value="{{ old('content', @$item->content)}}" required/>
+                                        <textarea class="form-control form-control-solid" name="content" id="content"
+                                                  required>
+                                           {{ old('content')}}
+                                        </textarea>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +61,7 @@
                                         <label>{{__('cp.description')}} <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control form-control-solid"
                                                name="description"
-                                               value="{{ old('description', @$item->description)}}" required/>
+                                               value="{{ old('description')}}" required/>
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +71,7 @@
                                         <label>{{__('cp.category')}} <span class="text-danger">*</span></label>
                                         <select name="category_id" class="form-control">
                                             @foreach($categories as $category)
-                                                <option value="{{$category->id}}" >
+                                                <option value="{{$category->id}}">
                                                     {{$category->title}}
                                                 </option>
                                             @endforeach
@@ -83,7 +84,7 @@
                                         <label>{{__('cp.keyword')}} <span class="text-danger">*</span></label>
                                         <select name="keyword_id" class="form-control">
                                             @foreach($keywords as $keyword)
-                                                <option value="{{$keyword->id}}" >
+                                                <option value="{{$keyword->id}}">
                                                     {{$keyword->title}}
                                                 </option>
                                             @endforeach
@@ -94,7 +95,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>{{__('cp.image')}} <span class="text-danger">*</span></label>
-                                    <input name="image" type="file" class="form-control">
+                                        <input name="image" type="file" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -108,4 +109,16 @@
         </div>
         <!--end::Entry-->
     </div>
+@endsection
+@section('script')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.14.0/full-all/ckeditor.js"></script>
+    <script>
+        $(".js-example-disabled-multi").select2();
+    </script>
+    <script>
+        CKEDITOR.replace('content', {
+            contentsLangDirection: "rtl",
+        });
+    </script>
 @endsection

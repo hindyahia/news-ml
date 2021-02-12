@@ -36,3 +36,5 @@ Route::namespace('Admin')
     Route::post('Keywords/reset/{Keyword}', 'KeywordController@resetKeywords')->name('Keywords.reset');
     Route::resource('blocked-keywords', 'BlockedKeywordController');
 });
+
+Route::view('blog', 'blog.index');

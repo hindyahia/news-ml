@@ -176,8 +176,8 @@ ____________________________________________ -->
 <script src="{{url('shop/js/owl.carousel.min.js')}}"></script>
 <script src="{{url('shop/js/front.js')}}"></script>
 <script src="//cdn.ckeditor.com/4.10.0/full/ckeditor.js"></script>
-@toastr_js
-@toastr_render
+{{--@toastr_js--}}
+{{--@toastr_render--}}
 <script>
     ClassicEditor
         .create( document.querySelector( '#ckeditor' ) )
@@ -186,7 +186,7 @@ ____________________________________________ -->
         } );
 </script>
 @stack('js')
-{!! NoCaptcha::renderJs() !!}
+{{--{!! NoCaptcha::renderJs() !!}--}}
 </body>
 
 </html>
