@@ -29,47 +29,50 @@ _________________________________________________________ -->
         <div class="navbar-collapse collapse" id="navigation">
 
             <ul class="nav navbar-nav navbar-left">
-            <li class="{{request()->segment(3) == 'post'  ? '' : 'active' }} "><a href="{{url('bloger')}}">{{trans('admin.home')}}</a>
+                <li class="{{request()->segment(3) == 'post'  ? '' : 'active' }} "><a
+                        href="{{url('bloger')}}">{{trans('admin.home')}}</a>
                 </li>
                 <li class="dropdown yamm-fw  ">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{trans('admin.categories')}}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                       data-delay="200">{{trans('admin.categories')}}
                         <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                            <li >
-                                <div class="yamm-content">
-                                    <div class="row">
-                                        @foreach(get_tag_all() as $tag)
-                                    <div class="col-sm-3">
+                        <li>
+                            <div class="yamm-content">
+                                <div class="row">
+                                    {{--                                        @foreach(get_tag_all() as $tag)--}}
+                                    {{--                                    <div class="col-sm-3">--}}
 
 
-                                        <ul>
-                                                @if(app('l') == 'en')
-                                                <li>  <h5> <a href="{{url('bloger/category/'.$tag->name_en)}}">{{$tag->name_en}}</a>
-                                                </h5>
-                                                @else
-          <h5><a href="{{url('bloger/category/'.$tag->name_en)}}">{{$tag->name_ar}}</a></h5>
-                                                @endif
-                                        </ul>
-                                    </div>
-                                    @endforeach
+                                    {{--                                        <ul>--}}
+                                    {{--                                                @if(app('l') == 'en')--}}
+                                    {{--                                                <li>  <h5> <a href="{{url('bloger/category/'.$tag->name_en)}}">{{$tag->name_en}}</a>--}}
+                                    {{--                                                </h5>--}}
+                                    {{--                                                @else--}}
+                                    {{--          <h5><a href="{{url('bloger/category/'.$tag->name_en)}}">{{$tag->name_ar}}</a></h5>--}}
+                                    {{--                                                @endif--}}
+                                    {{--                                        </ul>--}}
+                                    {{--                                    </div>--}}
+                                    {{--                                    @endforeach--}}
                                 </div>
                             </div>
                             <!-- /.yamm-content -->
                         </li>
                     </ul>
                 </li>
-                <li><a href="{{url('E-commerce')}}" >{{trans('admin.store')}}</a></li>
-                
-                @if(Auth::check()and Auth::user()->hasRole('Editor'))
-                <li class="{{request()->segment(3) == 'post' ? 'active' : ''}}"><a href="{{url('bloger/add/post')}}" >{{awTtrans('add post','en')}}</a></li>
-                @endif
-            @if(app('l') == 'ar')
+                <li><a href="{{url('E-commerce')}}">{{trans('admin.store')}}</a></li>
 
-                         <li><a href="{{aurl('lang/en')}}" >{{trans('admin.en')}} </a></li>
-                         @else
-                         <li><a href="{{aurl('lang/ar')}}" >{{trans('admin.ar')}} </a></li>
+{{--                @if(Auth::check()and Auth::user()->hasRole('Editor'))--}}
+                    <li class="{{request()->segment(3) == 'post' ? 'active' : ''}}"><a
+                            href="{{url('bloger/add/post')}}"></a></li>
+{{--                @endif--}}
+{{--                @if(app('l') == 'ar')--}}
 
-                         @endif
+                    <li><a href="">{{trans('admin.en')}} </a></li>
+{{--                @else--}}
+                    <li><a href="">{{trans('admin.ar')}} </a></li>
+
+{{--                @endif--}}
 
             </ul>
 
@@ -79,8 +82,9 @@ _________________________________________________________ -->
         <div class="navbar-buttons">
 
             <div class="navbar-collapse collapse right" id="basket-overview">
-                <a href="{{url('/E-commerce/cart')}}" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span
-                        class="hidden-sm">{{Cart::count()}} {{ trans('admin.items_in_cart') }}</span></a>
+                <a href="{{url('/E-commerce/cart')}}" class="btn btn-primary navbar-btn"><i
+                        class="fa fa-shopping-cart"></i><span
+                        class="hidden-sm">asdfasdf</span></a>
             </div>
             <!--/.nav-collapse -->
 
@@ -94,27 +98,28 @@ _________________________________________________________ -->
         </div>
 
         <div class="collapse clearfix" id="search">
-               {!! Form::open(['url'=>url('/bloger/search'),'method'=>'post','role'=>'search' ,'class'=>'navbar-form']) !!}
-                <div class="input-group">
-                    <input type="text" class="form-control" name="search" required placeholder="{{ trans('admin.search') }}">
-                    <span class="input-group-btn">
+            {{--               {!! Form::open(['url'=>url('/bloger/search'),'method'=>'post','role'=>'search' ,'class'=>'navbar-form']) !!}--}}
+            <div class="input-group">
+                <input type="text" class="form-control" name="search" required
+                       placeholder="{{ trans('admin.search') }}">
+                <span class="input-group-btn">
                 }
 
             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
 
             </span>
-                </div>
-{!! Form::close() !!}
-  {{--           <form class="navbar-form" role="search" method="post">
-                <div class="input-group">
-                    <input type="text" class="form-control"  placeholder="Search">
-                    <span class="input-group-btn">
+            </div>
+            {{--{!! Form::close() !!}--}}
+            {{--           <form class="navbar-form" role="search" method="post">
+                          <div class="input-group">
+                              <input type="text" class="form-control"  placeholder="Search">
+                              <span class="input-group-btn">
 
-			<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                      <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
 
-		    </span>
-                </div>
-            </form> --}}
+                      </span>
+                          </div>
+                      </form> --}}
 
         </div>
         <!--/.nav-collapse -->
@@ -127,5 +132,5 @@ _________________________________________________________ -->
 <!-- *** NAVBAR END *** -->
 <div id="all">
 
-        <div id="content">
-            <div class="container">
+    <div id="content">
+        <div class="container">

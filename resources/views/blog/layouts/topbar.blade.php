@@ -23,7 +23,7 @@ _________________________________________________________ -->
                 @endif
                 <li><a href="{{url('/bloger/contact')}}">{{trans('admin.contact')}}</a>
                 </li>
-             
+
             </ul>
         </div>
     </div>
@@ -36,7 +36,7 @@ _________________________________________________________ -->
                     <h4 class="modal-title" id="Login">{{trans('admin.Customer_login')}}</h4>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['route'=>'shop.login','method'=>'post']) !!}
+{{--                    {!! Form::open(['route'=>'shop.login','method'=>'post']) !!}--}}
                     <div class="form-group">
                         <input type="email" class="form-control" name="email"
                                pattern="[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+"

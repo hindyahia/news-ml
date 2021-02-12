@@ -34,8 +34,8 @@
     <link href="{{url('shop/css/animate.min.css')}}" rel="stylesheet">
     <link href="{{url('shop/css/owl.carousel.css')}}" rel="stylesheet">
     <link href="{{url('shop/css/owl.theme.css')}}" rel="stylesheet">
-    @toastr_css
-    @if(app('l') == 'ar')
+{{--    @toastr_css--}}
+    @if(app()->getLocale() == 'ar')
 
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css" rel="stylesheet">
@@ -49,7 +49,7 @@
     <script src="{{url('shop/js/respond.min.js')}}"></script>
     <script src="{{url('shop/js/share-btn.js')}}"></script>
 
-    @if(app('l') == 'ar')
+    @if(app()->getLocale() == 'ar')
         <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
 
 
