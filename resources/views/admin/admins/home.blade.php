@@ -115,6 +115,12 @@
                                                    data-container="body" data-placement="top" data-action="delete"
                                                    data-original-title="{{__('cp.delete')}}"><i
                                                         class="fa fa-trash"></i></a>
+
+                                                <a href="{{route('admin.users.edit-password',$item->id)}}"
+                                                   class="btn btn-xs btn-icon btn-clean blue tooltips"
+                                                   data-container="body" data-placement="top"
+                                                   data-original-title="{{__('cp.edit_password')}}"><i
+                                                        class="fa fa-user-lock"></i></a>
                                             </div>
                                         </td>
                                     </tr>

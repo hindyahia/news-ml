@@ -49,9 +49,7 @@
                                     <div class="form-group">
                                         <label>{{__('cp.content')}} <span class="text-danger">*</span></label>
                                         <textarea class="form-control form-control-solid" name="content" id="content"
-                                                  required>
-                                           {{ old('content')}}
-                                        </textarea>
+                                                  required>{{ old('content')}}</textarea>
                                     </div>
                                 </div>
                             </div>

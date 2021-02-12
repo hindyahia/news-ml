@@ -22,7 +22,8 @@ class BlockedKeywordController extends Controller
     {
         $items = BlockedKeyword::latest();
 
-        if (\request()->filled('title'))
+
+            if (\request()->filled('title'))
             $items->where('title','like', "%$request->title%");
 
         $items = $items->get();

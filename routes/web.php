@@ -17,24 +17,30 @@ Auth::routes();
 Route::redirect('/', '/home');
 Route::namespace('Admin')
     //->prefix('admin')
-    ->name('admin.')->group(function () {
-    //->middleware('auth')
-    Route::get('/home', 'AppController@index')->name('home');
-    Route::get('/edit-profile', 'UserController@editProfile')->name('edit-profile');
-    Route::post('/edit-profile', 'UserController@updateProfile');
-    Route::get('/edit-password', 'UserController@editPassword')->name('edit-password');
-    Route::post('/edit-password', 'UserController@updatePassword');
+    ->name('admin.')->middleware('auth')->group(function () {
+        //->middleware('auth')
+        Route::get('/home', 'AppController@index')->name('home');
+        Route::get('users/edit-profile', 'UserController@editProfile')->name('users.edit-profile');
+        Route::patch('users/edit-profile', 'UserController@updateProfile');
+        Route::get('users/edit-password/{user}', 'UserController@editUserPassword')->name('users.edit-password');
+        Route::patch('users/edit-password/{user}', 'UserController@updateUserPassword');
 
-    Route::post('/changeStatus/{model}', 'AppController@changeStatus');
-    Route::resource('users', 'UserController');
-    Route::resource('admins', 'AdminsController')->parameters([
-        'admins' => 'user',
-    ]);
-    Route::resource('contents', 'ContentController');
-    Route::resource('categories', 'CategoryController');
-    Route::resource('keywords', 'KeywordController');
-    Route::post('Keywords/reset/{Keyword}', 'KeywordController@resetKeywords')->name('Keywords.reset');
-    Route::resource('blocked-keywords', 'BlockedKeywordController');
-});
+        Route::post('/changeStatus/{model}', 'AppController@changeStatus');
+
+        Route::middleware('adminMiddleware')->group(function () {
+
+            Route::resource('users', 'UserController');
+            Route::resource('admins', 'AdminsController')->parameters([
+                'admins' => 'user',
+            ]);
+            Route::resource('blocked-keywords', 'BlockedKeywordController');
+
+        });
+
+        Route::resource('contents', 'ContentController');
+        Route::resource('categories', 'CategoryController');
+        Route::resource('keywords', 'KeywordController');
+        Route::post('Keywords/reset/{Keyword}', 'KeywordController@resetKeywords')->name('Keywords.reset');
+    });
 
 Route::view('blog', 'blog.index');

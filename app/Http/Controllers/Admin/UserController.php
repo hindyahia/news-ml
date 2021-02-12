@@ -20,13 +20,13 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $users = User::latest()->where('is_admin',false);
+        $users = User::latest()->where('is_admin', false);
 
         if (\request()->filled('email'))
-            $users->where('email','like', "%$request->email%");
+            $users->where('email', 'like', "%$request->email%");
 
         if (\request()->filled('mobile'))
-            $users->where('mobile','like', "%$request->mobile%");
+            $users->where('mobile', 'like', "%$request->mobile%");
 
         if (\request()->filled('statusUser'))
             $users->where('status', $request->statusUser);
@@ -82,14 +82,20 @@ class UserController extends Controller
         return response()->json(['status' => true, 'message' => 'success']);
     }
 
-    function edit_password(User $user)
+    function editUserPassword(User $user)
     {
-        return view("{$this->path}.edit_password", ['item' => $user]);
+        if (auth()->user()->is_admin == 1 || $user->id == auth()->id())
+            return view("{$this->path}.edit_password", ['item' => $user]);
+
+        abort(403);
     }
 
-
-    public function update_password(Request $request, User $user)
+    public function updateUserPassword(Request $request, User $user)
     {
+
+        if (!(auth()->user()->is_admin == 1 || $user->id == auth()->id()))
+            abort(403);
+
         $users_rules = array(
             'password' => 'required|min:6',
             'confirm_password' => 'required|same:password|min:6',
@@ -103,4 +109,18 @@ class UserController extends Controller
         return redirect()->back()->with('status', __('cp.update'));
     }
 
+
+    public function editProfile()
+    {
+        return view("{$this->path}.editProfile");
+    }
+
+
+    public function updateProfile(UserRequest $request)
+    {
+        $data = $request->validated();
+        $user = auth()->user();
+        $user->update($data);
+        return redirect()->back()->with('status', __('cp.update'));
+    }
 }

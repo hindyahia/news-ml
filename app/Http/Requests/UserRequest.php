@@ -24,10 +24,11 @@ class UserRequest extends FormRequest
     public function rules()
     {
         $is_required = $this->_method ? 'nullable' : 'required';
+        $user = $this->user??auth()->user();
         return [
             'name' => 'required|string',
-            'email' => 'nullable|string|email|max:191|unique:users,email'.($this->_method ? ",".@$this->user->id : ''),
-            'mobile' => 'required|string|max:191|unique:users,mobile'.($this->_method ? ",".@$this->user->id : ''),
+            'email' => 'nullable|string|email|max:191|unique:users,email'.($this->_method ? ",".@$user->id : ''),
+            'mobile' => 'required|string|max:191|unique:users,mobile'.($this->_method ? ",".@$user->id : ''),
             'password' => $is_required.'|string|min:6',
             'confirm_password' => $is_required.'|same:password|min:6',
             'allow' => 'nullable',

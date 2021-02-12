@@ -22,6 +22,8 @@ class KeywordController extends Controller
     {
 
         $items = Keyword::latest();
+        if (!auth()->user()->is_admin)
+            $items->where('user_id',auth()->id());
 
         if (\request()->filled('title'))
             $items->where('title', 'like', "%$request->title%");

@@ -48,9 +48,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>{{__('cp.content')}} <span class="text-danger">*</span></label>
-                                        <textarea class="form-control form-control-solid" name="content" id="content" required>
-                                           {{ old('content', @$item->content)}}
-                                        </textarea>
+                                        <textarea class="form-control form-control-solid" name="content" id="content" required>{{ old('content', @$item->content)}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -108,4 +106,16 @@
         </div>
         <!--end::Entry-->
     </div>
+@endsection
+@section('script')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.14.0/full-all/ckeditor.js"></script>
+    <script>
+        $(".js-example-disabled-multi").select2();
+    </script>
+    <script>
+        CKEDITOR.replace('content', {
+            contentsLangDirection: "rtl",
+        });
+    </script>
 @endsection

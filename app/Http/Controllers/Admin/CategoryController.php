@@ -18,6 +18,8 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         $categories = Category::latest();
+        if (!auth()->user()->is_admin)
+            $categories->where('user_id',auth()->id());
 
         if (\request()->filled('title'))
             $categories->where('title','like', "%$request->title%");

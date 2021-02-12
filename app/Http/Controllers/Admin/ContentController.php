@@ -20,7 +20,8 @@ class ContentController extends Controller
     public function index(Request $request)
     {
         $categories = Content::latest();
-
+        if (!auth()->user()->is_admin)
+            $categories->where('user_id',auth()->id());
         if (\request()->filled('title'))
             $categories->where('title','like', "%$request->title%");
 
