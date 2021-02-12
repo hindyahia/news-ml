@@ -17,6 +17,10 @@ function file_url($dir, $default = "")
 {
     return $dir === $default ? url('/images/' . $dir) : url('/storage/' . $dir);
 }
+function categories()
+{
+    return \App\Models\Category::all();
+}
 
 
 function storeFile($file, $folder_name, $old_file = null)

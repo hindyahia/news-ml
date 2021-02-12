@@ -5,7 +5,7 @@ _________________________________________________________ -->
     <div class="container">
         <div class="navbar-header">
 
-            <a class="navbar-brand home" href="{{url('bloger')}}" data-animate-hover="bounce">
+            <a class="navbar-brand home" href="{{url('/')}}" data-animate-hover="bounce">
                 <img src="{{url('shop/')}}/img/logo.png" alt="Obaju logo" class="hidden-xs">
                 <img src="{{url('shop/')}}/img/logo-small.png" alt="Obaju logo" class="visible-xs"><span
                     class="sr-only">Obaju - go to homepage</span>
@@ -30,7 +30,7 @@ _________________________________________________________ -->
 
             <ul class="nav navbar-nav navbar-left">
                 <li class="{{request()->segment(3) == 'post'  ? '' : 'active' }} "><a
-                        href="{{url('bloger')}}">{{trans('admin.home')}}</a>
+                        href="{{url('/')}}">{{trans('admin.home')}}</a>
                 </li>
                 <li class="dropdown yamm-fw  ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
@@ -40,20 +40,18 @@ _________________________________________________________ -->
                         <li>
                             <div class="yamm-content">
                                 <div class="row">
-                                    {{--                                        @foreach(get_tag_all() as $tag)--}}
-                                    {{--                                    <div class="col-sm-3">--}}
+                                                                            @foreach(categories() as $tag)
+                                                                        <div class="col-sm-3">
 
 
-                                    {{--                                        <ul>--}}
-                                    {{--                                                @if(app('l') == 'en')--}}
-                                    {{--                                                <li>  <h5> <a href="{{url('bloger/category/'.$tag->name_en)}}">{{$tag->name_en}}</a>--}}
-                                    {{--                                                </h5>--}}
-                                    {{--                                                @else--}}
-                                    {{--          <h5><a href="{{url('bloger/category/'.$tag->name_en)}}">{{$tag->name_ar}}</a></h5>--}}
-                                    {{--                                                @endif--}}
-                                    {{--                                        </ul>--}}
-                                    {{--                                    </div>--}}
-                                    {{--                                    @endforeach--}}
+                                                                            <ul>
+
+                                                                                    <li>  <h5> <a href="{{url('category/'.$tag->id)}}">{{$tag->title}}</a>
+                                                                                    </h5>
+
+                                                                            </ul>
+                                                                        </div>
+                                                                        @endforeach
                                 </div>
                             </div>
                             <!-- /.yamm-content -->
