@@ -101,7 +101,7 @@
             <div class="brand flex-column-auto" id="kt_brand">
                 <!--begin::Logo-->
                 <a href="/" class="brand-logo">
-                    <img alt="Logo" src="{{url('Logo.png')}}"/>
+                    <img alt="Logo" src="{{asset('admin_assets/logo.png')}}"/>
                 </a>
                 <!--end::Logo-->
                 <!--begin::Toggle-->
