@@ -18,43 +18,32 @@
             @foreach ($posts as $post)
                 <div class="post">
                     <h2>
-                        <a href="/post/{{ $post->id }}">{{ $post->title }}  </a>
+                        <a href="/post/{{ $post->id }}">{{ $post->title}}</a>
                     </h2>
-                    <p class="author-category">@lang('cp.By') <a href="/bloger/post/{{ $post->id }}" >
-                            {{$post->user->name}}
-
-                        </a> @lang('cp.in')
-                        <a
-                            href="">
-{{--                            @if(app('l') == 'ar'){{$post->tag->name_ar}}@else--}}
-{{--                                {{$post->tag->name_en}}--}}
-{{--                            @endif--}}
-                        </a>
+                    <p class="author-category">   @lang('cp.By') <a href="/post/{{ $post->id }}">{{$post->user->name}}</a>
+{{--                        @lang('cp.in'){{$post->created_at->toDayDateTimeString()}}--}} -
+                      (  <a href="{{url('/category/'.$post->category_id)}}">{{$post->category->title}}
+                        </a>)
                     </p>
                     <hr/>
                     <p class="date-comments">
-                        <a href="/post/{{ $post->id }}" }> <i
-                                class="fa fa-calendar-o"></i>{{$post->created_at->toDayDateTimeString()}} </a>
-                        <a href="/post/{{ $post->id }}" }>
-{{--                            <i--}}
-{{--                                class="fa fa-comment-o"></i>@awt('Comments','ar') {{count($post->comments)}} </a>--}}
+                        <a href="/post/{{ $post->id }}" ><i
+                                class="fa fa-calendar-o"></i> {{$post->created_at->toDayDateTimeString()}}</a>
+
                     </p>
-                                                @if($post->image_url)
-
                     <div class="image">
-                        <a href="/post/{{ $post->id }}" }>
+                        <a href="/post/{{ $post->id }}"  >
                             <img src="{{$post->image_url}}" class="img-responsive"
-                                 alt=""/>
-
+                                 alt="Example blog post alt"/>
                         </a>
                     </div>
-                       @endif
-                    <p class="intro">{!!$post->content !!} .</p>
+                    <p class="intro">{!! $post->description !!}</p>
                     <p class="read-more">
                         <a href="/post/{{ $post->id }}" }
-                           class="btn btn-primary">{{ trans('admin.continue_reading') }}</a>
+                           class="btn btn-primary">{{ trans('cp.read_more') }}</a>
                     </p>
                 </div>
+
             @endforeach
             {{$posts->links()}}
 {{--            <div class="pages" id="remove-row">--}}

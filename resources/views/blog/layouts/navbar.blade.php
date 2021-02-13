@@ -30,7 +30,7 @@ _________________________________________________________ -->
 
             <ul class="nav navbar-nav navbar-left">
                 <li class="{{request()->segment(3) == 'post'  ? '' : 'active' }} "><a
-                        href="{{url('/')}}">{{trans('admin.home')}}</a>
+                        href="{{url('/')}}">{{trans('cp.home')}}</a>
                 </li>
                 <li class="dropdown yamm-fw  ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
@@ -58,19 +58,6 @@ _________________________________________________________ -->
                         </li>
                     </ul>
                 </li>
-                <li><a href="{{url('E-commerce')}}">{{trans('admin.store')}}</a></li>
-
-{{--                @if(Auth::check()and Auth::user()->hasRole('Editor'))--}}
-                    <li class="{{request()->segment(3) == 'post' ? 'active' : ''}}"><a
-                            href="{{url('bloger/add/post')}}"></a></li>
-{{--                @endif--}}
-{{--                @if(app('l') == 'ar')--}}
-
-                    <li><a href="">{{trans('admin.en')}} </a></li>
-{{--                @else--}}
-                    <li><a href="">{{trans('admin.ar')}} </a></li>
-
-{{--                @endif--}}
 
             </ul>
 
@@ -79,12 +66,6 @@ _________________________________________________________ -->
 
         <div class="navbar-buttons">
 
-            <div class="navbar-collapse collapse right" id="basket-overview">
-                <a href="{{url('/E-commerce/cart')}}" class="btn btn-primary navbar-btn"><i
-                        class="fa fa-shopping-cart"></i><span
-                        class="hidden-sm">asdfasdf</span></a>
-            </div>
-            <!--/.nav-collapse -->
 
             <div class="navbar-collapse collapse right" id="search-not-mobile">
                 <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
@@ -97,10 +78,9 @@ _________________________________________________________ -->
 
         <div class="collapse clearfix" id="search">
             <form action="{{url('/bloger/search')}}" method="get" class="navbar-form">
-@csrf
-                <div class="input-group">
+                 <div class="input-group">
                     <input type="text" class="form-control" name="search" required
-                           placeholder="{{ trans('admin.search') }}">
+                           placeholder="{{ trans('cp.search') }}">
                     <span class="input-group-btn">
 
             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
@@ -108,19 +88,7 @@ _________________________________________________________ -->
             </span>
                 </div>
             </form>
-            {{--               {!! Form::open(['url'=>url('/bloger/search'),'method'=>'post','role'=>'search' ,'class'=>'navbar-form']) !!}--}}
 
-            {{--{!! Form::close() !!}--}}
-            {{--           <form class="navbar-form" role="search" method="post">
-                          <div class="input-group">
-                              <input type="text" class="form-control"  placeholder="Search">
-                              <span class="input-group-btn">
-
-                      <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-
-                      </span>
-                          </div>
-                      </form> --}}
 
         </div>
         <!--/.nav-collapse -->

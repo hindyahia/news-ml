@@ -24,7 +24,7 @@
                         <a href="/post/{{ $post->id }}">{{ $post->title}}</a>
                     </h2>
                     <p class="author-category">   @lang('cp.By') <a href="/post/{{ $post->id }}">{{$post->user->name}}</a>
-                        @lang('cp.in')
+                        @lang('cp.in'){{$post->created_at->toDayDateTimeString()}}
                         <a href="{{url('/category/'.$post->category_id)}}">{{$post->category->title}}
                         </a>
                     </p>
@@ -40,10 +40,10 @@
                                  alt="Example blog post alt"/>
                         </a>
                     </div>
-                    <p class="intro">{!! $post->content !!}</p>
+                    <p class="intro">{!! $post->description !!}</p>
                     <p class="read-more">
                         <a href="/post/{{ $post->id }}" }
-                           class="btn btn-primary">{{ trans('admin.continue_reading') }}</a>
+                           class="btn btn-primary">{{ trans('cp.read_more') }}</a>
                     </p>
                 </div>
 

@@ -53,7 +53,7 @@ class KeywordController extends Controller
      */
     public function store(KeywordRequest $request)
     {
-        Keyword::create($request->validated() + ['user_id' => 1]);
+        Keyword::create($request->validated() + ['user_id' => auth()->id()]);
 
         return redirect()->back()->with('status', __('cp.create'));
     }

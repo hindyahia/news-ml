@@ -9,25 +9,31 @@ _________________________________________________________ -->
         <div class="col-md-6" data-animate="fadeInDown">
             <ul class="menu">
                 @if(Auth::check())
-                    <li><a href="{{url('/bloger/logout')}}" >{{empty(Auth::user()->First_Name.Auth::user()->Last_Name) ? Auth::user()->username : Auth::user()->First_Name .' '.Auth::user()->Last_Name }}</a>
+                    <li><a href="{{route('logout')}}"  onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">{{ trans('cp.logout') }}</a>
                     </li>
                     <li>
-                            <a href="{{ url('bloger/account') }}">{{ trans('admin.My_account') }}</a>
+                            <a href="{{ route('admin.home') }}">{{ trans('cp.dashboard') }}</a>
 
                     </li>
                 @else
-                <li><a href="#" data-toggle="modal" data-target="#login-modal">{{trans('admin.login')}}</a>
+                <li><a href="{{route('login')}}"  >{{trans('cp.login')}}</a>
                     </li>
-                    <li><a href="{{url('/bloger/register')}}">{{trans('admin.register')}}</a>
+                    <li><a href="{{route('register')}}">{{trans('cp.register')}}</a>
                     </li>
                 @endif
-                <li><a href="{{url('/bloger/contact')}}">{{trans('admin.contact')}}</a>
-                </li>
+{{--                <li><a href="{{url('/bloger/contact')}}">{{trans('admin.contact')}}</a>--}}
+{{--                </li>--}}
 
             </ul>
         </div>
     </div>
-    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                 style="display: none;">
+        {{ csrf_field() }}
+    </form>
+ {{--   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
         <div class="modal-dialog modal-sm">
 
             <div class="modal-content">
@@ -36,7 +42,7 @@ _________________________________________________________ -->
                     <h4 class="modal-title" id="Login">{{trans('admin.Customer_login')}}</h4>
                 </div>
                 <div class="modal-body">
-{{--                    {!! Form::open(['route'=>'shop.login','method'=>'post']) !!}--}}
+--}}{{--                    {!! Form::open(['route'=>'shop.login','method'=>'post']) !!}--}}{{--
                     <div class="form-group">
                         <input type="email" class="form-control" name="email"
                                pattern="[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+"
@@ -62,7 +68,7 @@ _________________________________________________________ -->
             </div>
         </div>
     </div>
-
+--}}
 </div>
 
 <!-- *** TOP BAR END *** -->
