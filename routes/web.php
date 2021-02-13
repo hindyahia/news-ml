@@ -38,6 +38,7 @@ Route::namespace('Admin')
         });
 
         Route::resource('contents', 'ContentController');
+        Route::get('getCustomNewsToKeyword', 'ContentController@getCustomNewsToKeyword')->name('getCustomNews');
         Route::resource('categories', 'CategoryController');
         Route::resource('keywords', 'KeywordController');
         Route::post('Keywords/reset/{Keyword}', 'KeywordController@resetKeywords')->name('Keywords.reset');

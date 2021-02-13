@@ -38,7 +38,7 @@ class ContentController extends Controller
     public function create()
     {
         $data['categories'] = Category::all();
-        $data['keywords'] = Keyword::all();
+        $data['keywords'] = Keyword::where('user_id',auth()->id())->get();
         return view("{$this->path}.create")->with($data);
     }
 
@@ -78,7 +78,7 @@ class ContentController extends Controller
     public function edit(Content $Content)
     {
         $data['categories'] = Category::all();
-        $data['keywords'] = Keyword::all();
+        $data['keywords'] = Keyword::where('user_id',auth()->id())->get();
         $data['item'] =$Content;
         return view("{$this->path}.edit")->with($data);
     }
@@ -108,5 +108,16 @@ class ContentController extends Controller
     {
         $Content->delete();
         return response()->json(['status' => true, 'message' => 'success']);
+    }    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Content  $Content
+     * @return \Illuminate\Http\Response
+     */
+    public function getCustomNewsToKeyword(Request $request)
+    {
+        $items = Content::latest()->with('category')->where('from_admin',true)->where('user_id',auth()->id())
+            ->where('keyword_id',$request->keyword_id)->get();
+        return response()->json(['status' => true, 'message' => 'success' ,'data'=>$items]);
     }
 }

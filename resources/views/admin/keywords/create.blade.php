@@ -10,12 +10,9 @@
                 <!--begin::Info-->
                 <div class="d-flex align-items-center flex-wrap mr-1">
                     <div class="d-flex align-items-baseline mr-5">
-<<<<<<< HEAD
+
                         <h3>{{__('cp.add_keywords')}}</h3>
-=======
-                        <h3>{{__('cp.add_keyword')}}</h3>
->>>>>>> origin/main
-                    </div>
+                     </div>
                 </div>
                 <!--end::Info-->
                 <!--begin::Toolbar-->
