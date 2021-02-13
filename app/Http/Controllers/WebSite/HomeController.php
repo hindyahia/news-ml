@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public  function  index(){
 
-       $data['posts'] = Content::paginate();
+       $data['posts'] = Content::where('from_admin',false)->paginate();
        return view('blog.layouts.index')->with($data);
     }
     public  function  single_post($id){

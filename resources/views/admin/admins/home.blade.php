@@ -61,18 +61,18 @@
 
                             </div>
                             <div class="btn-group ">
-                                <form class="input-group">
+<!--                                <form class="input-group">
                                     <input type="text" class="form-control" name="search" placeholder="بحث">
                                     <div class="input-group-append">
                                         <button class="btn btn-secondary">
                                             <i class="fas fa-search"></i>
                                         </button>
                                     </div>
-                                </form>
+                                </form>-->
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-hover tableWithSearch" id="tableWithSearch">
+                            <table class="table table-hover tableWithSearch datatable" id="tableWithSearch">
                                 <thead>
                                 <tr>
                                     <th>

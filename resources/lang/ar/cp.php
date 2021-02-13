@@ -91,4 +91,7 @@ return [
     'confirmNotActiveAll' => ' هل تريد إلغاء تفعيل العناصر ؟',
     'confirmActiveAll' => ' هل تريد تفعيل العناصر ؟',
     'Yes' => 'نعم',
+    'users' => 'مستخدم',
+    'categories' => 'تصنيف',
+    'news' => 'خبر',
 ];

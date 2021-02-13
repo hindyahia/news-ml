@@ -3,13 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Content;
 use App\Models\Keyword;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
     public function index()
     {
+        if (auth()->user()->is_admin){
+            $data['keywords_count']  = Keyword::count();
+            $data['category_count']  = Category::count();
+            $data['users_count']  = User::where('is_admin',false)->count();
+            $data['articles_count']  = Content::where('from_admin',false)->count();
+
+        }else
         $data['keywords']  = Keyword::where(['status'=>3,'user_id'=>auth()->id()])->get();
         return view('admin.home.home')->with($data);
     }

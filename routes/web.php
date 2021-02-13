@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::redirect('/', '/home');
+//Route::redirect('/', '/home');
 Route::namespace('Admin')
     //->prefix('admin')
     ->name('admin.')->middleware('auth')->group(function () {

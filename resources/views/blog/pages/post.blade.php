@@ -21,7 +21,7 @@
             @foreach ($posts as $post)
                 <div class="post">
                     <h2>
-                        <a href="/post/{{ $post->id }}">{{ $post->title}}</a> </a>
+                        <a href="/post/{{ $post->id }}">{{ $post->title}}</a>
                     </h2>
                     <p class="author-category">   @lang('cp.By') <a href="/post/{{ $post->id }}">{{$post->user->name}}</a>
                         @lang('cp.in')
@@ -30,12 +30,12 @@
                     </p>
                     <hr/>
                     <p class="date-comments">
-                        <a href="/post/{{ $post->id }}" }><i
+                        <a href="/post/{{ $post->id }}" ><i
                                 class="fa fa-calendar-o"></i> {{$post->created_at->toDayDateTimeString()}}</a>
 
                     </p>
                     <div class="image">
-                        <a href="/post/{{ $post->id }}" }>
+                        <a href="/post/{{ $post->id }}"  >
                             <img src="{{$post->image_url}}" class="img-responsive"
                                  alt="Example blog post alt"/>
                         </a>
@@ -49,16 +49,11 @@
 
             @endforeach
             <div class="pages" id="remove-row">
-          {{$posts->links()}}
+                     {{$posts->links()}}
             </div>
             <br/>
         </div>
-        {{--<ul class="pager">--}}
-        {{--<li class="previous"><a href="#">&larr; Older</a>--}}
-        {{--</li>--}}
-        {{--<li class="next disabled"><a href="#">Newer &rarr;</a>--}}
-        {{--</li>--}}
-        {{--</ul>--}}
+
 
 
     </div>

@@ -19,7 +19,7 @@ class ContentController extends Controller
 
     public function index(Request $request)
     {
-        $categories = Content::latest();
+        $categories = Content::latest()->where('from_admin',false);
         if (!auth()->user()->is_admin)
             $categories->where('user_id',auth()->id());
         if (\request()->filled('title'))
@@ -52,7 +52,7 @@ class ContentController extends Controller
     {
         $data = $request->validated() ;
         $data['user_id'] = auth()->id();
-        $data['from_admin'] = 1;
+         $data['from_admin'] = false;
 
         Content::create($data);
         return redirect()->back()->with('status', __('cp.create'));
@@ -94,7 +94,6 @@ class ContentController extends Controller
     {
         $data = $request->validated() ;
         $data['user_id'] = auth()->id();
-        $data['from_admin'] = 1;
         $Content->update($data);
         return redirect()->back()->with('status', __('cp.update'));
     }

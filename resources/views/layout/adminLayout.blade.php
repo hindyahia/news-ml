@@ -39,8 +39,12 @@
           type="text/css"/>
     <link href="{{asset('/admin_assets/css/rtl.css')}}" rel="stylesheet"
           type="text/css"/>
-    {{--    @endif--}}
-
+ <style>
+     div#tableWithSearch_filter {
+         padding-right: 20px;
+         padding-left: 20px;
+     }
+ </style>
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -50,8 +54,8 @@
 <!--begin::Header Mobile-->
 <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
     <!--begin::Logo-->
-    <a href="index.html">
-        <img alt="Logo" src="{{url('/admin_assets/media/logos/logo-light.png')}}"/>
+    <a href="{{url('/')}}">
+        <img alt="Logo" src="{{asset('admin_assets/logo.png')}}"/>
     </a>
     <!--end::Logo-->
     <!--begin::Toolbar-->
@@ -135,29 +139,7 @@
                      data-menu-dropdown-timeout="500">
                     <!--begin::Menu Nav-->
                     <ul class="menu-nav">
-                        {{--                        <li class="menu-item {{request()->fullUrlIs(url(getLocal().'/admin/home'))? "menu-item-here" : ''}}"--}}
-                        {{--                            aria-haspopup="true">--}}
-                        {{--                            <a href="{{url(getLocal().'/admin/home')}}" class="menu-link">--}}
-                        {{--                                            <span class="svg-icon menu-icon">--}}
-                        {{--                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->--}}
-                        {{--                                                <svg xmlns="http://www.w3.org/2000/svg"--}}
-                        {{--                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"--}}
-                        {{--                                                     height="24px" viewBox="0 0 24 24" version="1.1">--}}
-                        {{--                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
-                        {{--                                                        <polygon points="0 0 24 0 24 24 0 24"/>--}}
-                        {{--                                                        <path--}}
-                        {{--                                                            d="M12.9336061,16.072447 L19.36,10.9564761 L19.5181585,10.8312381 C20.1676248,10.3169571 20.2772143,9.3735535 19.7629333,8.72408713 C19.6917232,8.63415859 19.6104327,8.55269514 19.5206557,8.48129411 L12.9336854,3.24257445 C12.3871201,2.80788259 11.6128799,2.80788259 11.0663146,3.24257445 L4.47482784,8.48488609 C3.82645598,9.00054628 3.71887192,9.94418071 4.23453211,10.5925526 C4.30500305,10.6811601 4.38527899,10.7615046 4.47382636,10.8320511 L4.63,10.9564761 L11.0659024,16.0730648 C11.6126744,16.5077525 12.3871218,16.5074963 12.9336061,16.072447 Z"--}}
-                        {{--                                                            fill="#000000" fill-rule="nonzero"/>--}}
-                        {{--                                                        <path--}}
-                        {{--                                                            d="M11.0563554,18.6706981 L5.33593024,14.122919 C4.94553994,13.8125559 4.37746707,13.8774308 4.06710397,14.2678211 C4.06471678,14.2708238 4.06234874,14.2738418 4.06,14.2768747 L4.06,14.2768747 C3.75257288,14.6738539 3.82516916,15.244888 4.22214834,15.5523151 C4.22358765,15.5534297 4.2250303,15.55454 4.22647627,15.555646 L11.0872776,20.8031356 C11.6250734,21.2144692 12.371757,21.2145375 12.909628,20.8033023 L19.7677785,15.559828 C20.1693192,15.2528257 20.2459576,14.6784381 19.9389553,14.2768974 C19.9376429,14.2751809 19.9363245,14.2734691 19.935,14.2717619 L19.935,14.2717619 C19.6266937,13.8743807 19.0546209,13.8021712 18.6572397,14.1104775 C18.654352,14.112718 18.6514778,14.1149757 18.6486172,14.1172508 L12.9235044,18.6705218 C12.377022,19.1051477 11.6029199,19.1052208 11.0563554,18.6706981 Z"--}}
-                        {{--                                                            fill="#000000" opacity="0.3"/>--}}
-                        {{--                                                    </g>--}}
-                        {{--                                                </svg>--}}
-                        {{--                                                <!--end::Svg Icon-->--}}
-                        {{--                                            </span>--}}
-                        {{--                                <span class="menu-text">{{__('cp.home')}}</span>--}}
-                        {{--                            </a>--}}
-                        {{--                        </li>--}}
+
                         <li class="menu-item {{request()->fullUrlIs(url('admin/home*'))? "menu-item-here" : ''}}"
                             aria-haspopup="true">
                             <a href="{{route('admin.home')}}" class="menu-link">
@@ -181,9 +163,10 @@
                                 <span class="menu-text">{{__('cp.home')}}</span>
                             </a>
                         </li>
-                        <li class="menu-item {{request()->fullUrlIs(url('admin/users*'))? "menu-item-here" : ''}}"
-                            aria-haspopup="true">
-                            <a href="{{route('admin.users.index')}}" class="menu-link">
+                        @if(auth()->user()->is_admin)
+                            <li class="menu-item {{request()->fullUrlIs(url('admin/users*'))? "menu-item-here" : ''}}"
+                                aria-haspopup="true">
+                                <a href="{{route('admin.users.index')}}" class="menu-link">
                                             <span class="svg-icon menu-icon">
                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -201,12 +184,12 @@
                                                 </svg>
                                                 <!--end::Svg Icon-->
                                             </span>
-                                <span class="menu-text">{{__('cp.users_management')}}</span>
-                            </a>
-                        </li>
-                        <li class="menu-item {{request()->routeIs('admin.admins.*')? "menu-item-here" : ''}}"
-                            aria-haspopup="true">
-                            <a href="{{route('admin.admins.index')}}" class="menu-link">
+                                    <span class="menu-text">{{__('cp.users_management')}}</span>
+                                </a>
+                            </li>
+                            <li class="menu-item {{request()->routeIs('admin.admins.*')? "menu-item-here" : ''}}"
+                                aria-haspopup="true">
+                                <a href="{{route('admin.admins.index')}}" class="menu-link">
                                             <span class="svg-icon menu-icon">
                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -224,9 +207,10 @@
                                                 </svg>
                                                 <!--end::Svg Icon-->
                                             </span>
-                                <span class="menu-text">{{__('cp.admins_management')}}</span>
-                            </a>
-                        </li>
+                                    <span class="menu-text">{{__('cp.admins_management')}}</span>
+                                </a>
+                            </li>
+                        @endif
                         <li class="menu-item {{request()->routeIs('admin.categories.*')? "menu-item-here" : ''}}"
                             aria-haspopup="true">
                             <a href="{{route('admin.categories.index')}}" class="menu-link">
@@ -274,10 +258,11 @@
                                 <span class="menu-text">{{__('cp.keywords_management')}}</span>
                             </a>
                         </li>
+                        @if(auth()->user()->is_admin)
 
-                        <li class="menu-item {{request()->routeIs('admin.blocked-keywords.*')? "menu-item-here" : ''}}"
-                            aria-haspopup="true">
-                            <a href="{{route('admin.blocked-keywords.index')}}" class="menu-link">
+                            <li class="menu-item {{request()->routeIs('admin.blocked-keywords.*')? "menu-item-here" : ''}}"
+                                aria-haspopup="true">
+                                <a href="{{route('admin.blocked-keywords.index')}}" class="menu-link">
                                             <span class="svg-icon menu-icon">
                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -295,9 +280,10 @@
                                                 </svg>
                                                 <!--end::Svg Icon-->
                                             </span>
-                                <span class="menu-text">{{__('cp.blocked_keywords_management')}}</span>
-                            </a>
-                        </li>
+                                    <span class="menu-text">{{__('cp.blocked_keywords_management')}}</span>
+                                </a>
+                            </li>
+                        @endif
                         <li class="menu-item {{request()->routeIs('admin.contents.*')? "menu-item-here" : ''}}"
                             aria-haspopup="true">
                             <a href="{{route('admin.contents.index')}}" class="menu-link">
@@ -321,6 +307,83 @@
                                 <span class="menu-text">{{__('cp.contents_management')}}</span>
                             </a>
                         </li>
+
+                        <li class="menu-item {{request()->routeIs('admin.users.edit-profile')? "menu-item-here" : ''}}"
+                            aria-haspopup="true">
+                            <a href="{{route('admin.users.edit-profile')}}" class="menu-link">
+                                            <span class="svg-icon menu-icon">
+                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24"/>
+                                                    <path
+                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
+                                                        fill="#000000"/>
+                                                    <path
+                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
+                                                        fill="#000000" opacity="0.3"/>
+                                                </g>
+                                                </svg>
+                                                <!--end::Svg Icon-->
+                                            </span>
+                                <span class="menu-text">{{__('cp.edit_profile')}}</span>
+
+                            </a>
+                        </li>
+                        <li class="menu-item {{request()->routeIs('admin.users.edit-password')? "menu-item-here" : ''}}"
+                            aria-haspopup="true">
+                            <a href="{{route('admin.users.edit-password',auth()->id())}}" class="menu-link">
+                                            <span class="svg-icon menu-icon">
+                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24"/>
+                                                    <path
+                                                        d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
+                                                        fill="#000000"/>
+                                                    <path
+                                                        d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
+                                                        fill="#000000" opacity="0.3"/>
+                                                </g>
+                                                </svg>
+                                                <!--end::Svg Icon-->
+                                            </span>
+                                <span class="menu-text">{{__('cp.edit_password')}}</span>
+                            </a>
+                        </li>
+                        <li class="menu-item "
+                            aria-haspopup="true">
+                            <a href="{{route('logout')}}" class="menu-link" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                                    <span class="svg-icon menu-icon">
+                                                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                                             height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                            <rect x="0" y="0" width="24" height="24"/>
+                                                                            <path
+                                                                                d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z"
+                                                                                fill="#000000"/>
+                                                                            <path
+                                                                                d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z"
+                                                                                fill="#000000" opacity="0.3"/>
+                                                                        </g>
+                                                                        </svg>
+                                                                        <!--end::Svg Icon-->
+                                                                    </span>
+                                <span class="menu-text">{{__('cp.logout')}}</span>
+                            </a>
+                        </li>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
 
                     </ul>
                     <!--end::Menu Nav-->
@@ -365,13 +428,14 @@
                             <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2"
                                  id="kt_quick_user_toggle">
                                 {{-- <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1"></span> --}}
-                                <span
-                                    class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">name</span>
+                                {{--                                <span--}}
+                                {{--                                    class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">name</span>--}}
 
-                                {{--										<span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{auth()->user()->name}}</span>--}}
-                                <span class="symbol symbol-35 symbol-light-success">
-											<span class="symbol-label font-size-h5 font-weight-bold">name</span>
-										</span>
+                                <span
+                                    class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{auth()->user()->name}}</span>
+                                {{--                                <span class="symbol symbol-35 symbol-light-success">--}}
+                                {{--											<span class="symbol-label font-size-h5 font-weight-bold">name</span>--}}
+                                {{--										</span>--}}
                             </div>
                         </div>
                         <!--end::User-->
@@ -461,9 +525,10 @@
                 <i class="symbol-badge bg-success"></i>
             </div>
             <div class="d-flex flex-column">
-                <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{"Admin Name"}}</a>
+                <a href="#"
+                   class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{auth()->user()->name}}</a>
                 {{--						<a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{auth()->user()->name}}</a>--}}
-                <div class="text-muted mt-1">Application Developer</div>
+                {{--                <div class="text-muted mt-1">Application Developer</div>--}}
                 <div class="navi mt-2">
                     <a href="#" class="navi-item">
 								<span class="navi-link p-0 pb-2">
@@ -484,12 +549,13 @@
                                             <!--end::Svg Icon-->
 										</span>
 									</span>
-									<span class="navi-text text-muted text-hover-primary">{{"app@gmail.com"}}</span>
-{{--									<span class="navi-text text-muted text-hover-primary">{{auth()->user()->email}}</span>--}}
+{{--									<span class="navi-text text-muted text-hover-primary">{{"app@gmail.com"}}</span>--}}
+									<span
+                                        class="navi-text text-muted text-hover-primary">{{auth()->user()->email}}</span>
 								</span>
                     </a>
                     {{--							<a href="{{ route('admin.admins.edit',auth()->user()->id) }}" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Edit profile</a>--}}
-                    <a href="{{ url('admin.admins.edit',1) }}"
+                    <a href="{{ route('admin.admins.edit',auth()->id()) }}"
                        class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Edit profile</a>
                     <a href="{{route('logout')}}"
                        class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
@@ -1101,12 +1167,170 @@
 <script src="{{asset('/admin_assets/plugins/custom/uppy/uppy.bundle.js')}}"></script>
 <script src="{{asset('/admin_assets/js/pages/crud/file-upload/uppy.js')}}"></script>
 <script src="{{asset('/admin_assets/sweetalert/sweetalert.min.js')}}"></script>
-
+<!--begin::Page Vendors(used by this page)-->
+<script src="{{asset('/admin_assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
+<script src="{{asset('/admin_assets/js/pages/crud/datatables/advanced/column-rendering.js')}}"></script>
+<!--end::Page Vendors-->
 <script src="{{asset('/admin_assets/plugins/jquery-validation/js/jquery.validate.js')}}"></script>
 <script src="{{asset('/admin_assets/plugins/jquery-validation/js/additional-methods.min.js')}}"></script>
 @yield('js')
 @yield('script')
 <script type="text/javascript">
+    $('.datatable').DataTable({
+        responsive: true,
+        dom: 'frtip',
+        // dom: 'Bfrtip',
+        searching: true,
+        "oLanguage": {
+            "sSearch": "{{__('cp.search')}}"
+        },
+        bInfo: true, //Dont display info e.g. "Showing 1 to 4 of 4 entries"
+        paging: false,//Dont want paging
+        bPaginate: true,//Dont want paging
+        /*buttons: [
+            // 'copy', 'excel', 'pdf', 'print'
+            'excel'//, 'print'
+        ]*/
+        {{--buttons: [{--}}
+        {{--    extend : 'excel',--}}
+        {{--    text : '@lang('cp.excel')',--}}
+        {{--    title : 'Report - All Values',--}}
+        {{--    exportOptions : {--}}
+        {{--        modifier : {--}}
+        {{--            // DataTables core--}}
+        {{--            order : 'index', // 'current', 'applied','index', 'original'--}}
+        {{--            page : 'all', // 'all', 'current'--}}
+        {{--            search : 'applied' // 'none', 'applied', 'removed'--}}
+        {{--        },--}}
+        {{--        //columns: [ 2, 3, 4, 5, 6, 7, 8, 9, 10 ]--}}
+        {{--        columns: ':not(.notexport)'--}}
+        {{--    }--}}
+        {{--}]--}}
+        // columnDefs: [
+        //     {
+        //         targets: 0,
+        //         title: 'Agent',
+        //         render: function(data, type, full, meta) {
+        //             var number = KTUtil.getRandomInt(1, 14);
+        //             var user_img = '100_' + number + '.jpg';
+        //
+        //             var output;
+        //             if (number > 8) {
+        //                 output = `
+        //                     <div class="d-flex align-items-center">
+        //                         <div class="symbol symbol-50 flex-shrink-0">
+        //                             <img src="assets/media/users/` + user_img + `" alt="photo">
+        //                         </div>
+        //                         <div class="ml-3">
+        //                             <span class="text-dark-75 font-weight-bold line-height-sm d-block pb-2">` + full[2] + `</span>
+        //                             <a href="#" class="text-muted text-hover-primary">` + full[3] + `</a>
+        //                         </div>
+        //                     </div>`;
+        //             }
+        //
+        //             else {
+        //                 var stateNo = KTUtil.getRandomInt(0, 7);
+        //                 var states = [
+        //                     'success',
+        //                     'light',
+        //                     'danger',
+        //                     'success',
+        //                     'warning',
+        //                     'dark',
+        //                     'primary',
+        //                     'info'];
+        //
+        //                 var state = states[stateNo];
+        //
+        //                 output = `
+        //                     <div class="d-flex align-items-center">
+        //                         <div class="symbol symbol-50 symbol-light-` + state + `" flex-shrink-0">
+        //                             <div class="symbol-label font-size-h5">` + full[2].substring(0, 1) + `</div>
+        //                         </div>
+        //                         <div class="ml-3">
+        //                             <span class="text-dark-75 font-weight-bold line-height-sm d-block pb-2">` + full[2] + `</span>
+        //                             <a href="#" class="text-muted text-hover-primary">` + full[3] + `</a>
+        //                         </div>
+        //                     </div>`;
+        //             }
+        //
+        //             return output;
+        //         },
+        //     },
+        //     {
+        //         targets: 1,
+        //         render: function(data, type, full, meta) {
+        //             return '<a class="text-dark-50 text-hover-primary" href="mailto:' + data + '">' + data + '</a>';
+        //         },
+        //     },
+        //     {
+        //         targets: -1,
+        //         title: 'Actions',
+        //         orderable: false,
+        //         render: function(data, type, full, meta) {
+        //             return '\
+        // 				<div class="dropdown dropdown-inline">\
+        // 					<a href="javascript:;" class="btn btn-sm btn-clean btn-icon" data-toggle="dropdown">\
+        //                         <i class="la la-cog"></i>\
+        //                     </a>\
+        // 				  	<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
+        // 						<ul class="nav nav-hoverable flex-column">\
+        // 				    		<li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-edit"></i><span class="nav-text">Edit Details</span></a></li>\
+        // 				    		<li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-leaf"></i><span class="nav-text">Update Status</span></a></li>\
+        // 				    		<li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-print"></i><span class="nav-text">Print</span></a></li>\
+        // 						</ul>\
+        // 				  	</div>\
+        // 				</div>\
+        // 				<a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Edit details">\
+        // 					<i class="la la-edit"></i>\
+        // 				</a>\
+        // 				<a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">\
+        // 					<i class="la la-trash"></i>\
+        // 				</a>\
+        // 			';
+        //         },
+        //     },
+        //     {
+        //         targets: 4,
+        //         render: function(data, type, full, meta) {
+        //             var status = {
+        //                 1: {'title': 'Pending', 'class': 'label-light-primary'},
+        //                 2: {'title': 'Delivered', 'class': ' label-light-danger'},
+        //                 3: {'title': 'Canceled', 'class': ' label-light-primary'},
+        //                 4: {'title': 'Success', 'class': ' label-light-success'},
+        //                 5: {'title': 'Info', 'class': ' label-light-info'},
+        //                 6: {'title': 'Danger', 'class': ' label-light-danger'},
+        //                 7: {'title': 'Warning', 'class': ' label-light-warning'},
+        //             };
+        //             if (typeof status[data] === 'undefined') {
+        //                 return data;
+        //             }
+        //             return '<span class="label label-lg font-weight-bold' + status[data].class + ' label-inline">' + status[data].title + '</span>';
+        //         },
+        //     },
+        //     {
+        //         targets: 5,
+        //         render: function(data, type, full, meta) {
+        //             var status = {
+        //                 1: {'title': 'Online', 'state': 'danger'},
+        //                 2: {'title': 'Retail', 'state': 'primary'},
+        //                 3: {'title': 'Direct', 'state': 'success'},
+        //             };
+        //             if (typeof status[data] === 'undefined') {
+        //                 return data;
+        //             }
+        //             return '<span class="label label-' + status[data].state + ' label-dot mr-2"></span>' +
+        //                 '<span class="font-weight-bold text-' + status[data].state + '">' + status[data].title + '</span>';
+        //         },
+        //     },
+        // ],
+    });
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     function scrollTo(el, offeset) {
 
         var pos = (el && el.size() > 0) ? el.offset().top : 0;
@@ -1436,6 +1660,8 @@
         $(this).parents('.image_dev').find("input[type=file]").click();
 
     });
+
+
     $(document).on('click', '[data-action=delete]', function (event) {
         event.preventDefault();
         $this = $(this);
@@ -1453,7 +1679,7 @@
                     return;
                 }
 
-                $.post($($this).attr('data-action-url'), {_method: 'delete'}, function (response) {
+                $.post($($this).data('action-url'), {_method: 'delete'}, function (response) {
                     // $('.dataTable').DataTable().ajax.reload();
                     swal(response.message, '', 'success');
                     $this.parents('tr').hide(2000);
@@ -1485,13 +1711,22 @@
             $(this).remove();
         });
     });
+    $('.event').attr('disabled', 'disabled');
 
+    $("input:checkbox[name=chkBox]").on('change', function () {
+        if ($("input:checkbox[name=chkBox]:checked").length > 0)
+            $('.event').attr('disabled', false);
+        else
+            $('.event').attr('disabled', 'disabled');
+
+    });
 
     $('.confirmAll').on('click', function (e) {
         e.preventDefault();
         var action = $(this).data('action');
 
-        var url = "{{ url('/admin/changeStatus/'.Request::segment(2)) }}";
+        var url = "{{ url('/changeStatus/'.Request::segment(1)) }}";
+        {{--var url = "{{ url('/admin/changeStatus/'.Request::segment(2)) }}";--}}
         var csrf_token = '{{csrf_token()}}';
         var IDsArray = [];
         $("input:checkbox[name=chkBox]:checked").each(function () {
@@ -1509,7 +1744,7 @@
                         //alert('fsvf');
                         $.each(IDsArray, function (index, value) {
                             $('#label-' + value).removeClass('badge-danger');
-                            $('#label-' + value).addClass('badge-info');
+                            $('#label-' + value).addClass('badge-success');
                             $r = '{{app()->getLocale()}}';
                             if ($r == 'ar') {
                                 $('#label-' + value).text('فعال ');
@@ -1555,7 +1790,9 @@
             alert('{{__('cp.not_selected')}}');
         }
     });
-
+    $(function () {
+        $('.tooltips,[data-toggle="tooltip"]').tooltip()
+    })
 </script>
 
 
