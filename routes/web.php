@@ -46,3 +46,4 @@ Route::namespace('Admin')
 Route::get('/', 'WebSite\HomeController@index');
 Route::get('post/{id}', 'WebSite\HomeController@single_post');
 Route::get('category/{id}', 'WebSite\HomeController@category');
+Route::get('bloger/search', 'WebSite\HomeController@search');
