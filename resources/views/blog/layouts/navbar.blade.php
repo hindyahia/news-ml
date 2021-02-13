@@ -96,17 +96,20 @@ _________________________________________________________ -->
         </div>
 
         <div class="collapse clearfix" id="search">
-            {{--               {!! Form::open(['url'=>url('/bloger/search'),'method'=>'post','role'=>'search' ,'class'=>'navbar-form']) !!}--}}
-            <div class="input-group">
-                <input type="text" class="form-control" name="search" required
-                       placeholder="{{ trans('admin.search') }}">
-                <span class="input-group-btn">
-                }
+            <form action="{{url('/bloger/search')}}" method="get" class="navbar-form">
+@csrf
+                <div class="input-group">
+                    <input type="text" class="form-control" name="search" required
+                           placeholder="{{ trans('admin.search') }}">
+                    <span class="input-group-btn">
 
             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
 
             </span>
-            </div>
+                </div>
+            </form>
+            {{--               {!! Form::open(['url'=>url('/bloger/search'),'method'=>'post','role'=>'search' ,'class'=>'navbar-form']) !!}--}}
+
             {{--{!! Form::close() !!}--}}
             {{--           <form class="navbar-form" role="search" method="post">
                           <div class="input-group">
