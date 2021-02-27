@@ -70,8 +70,9 @@ class BlockedKeywordController extends Controller
      * @param  \App\Models\Keyword $keyword
      * @return \Illuminate\Http\Response
      */
-    public function edit(BlockedKeyword $keyword)
+    public function edit($id)
     {
+        $keyword = BlockedKeyword::find($id);
         return view("{$this->path}.edit")->with([
             'item' => $keyword
         ]);
@@ -84,8 +85,9 @@ class BlockedKeywordController extends Controller
      * @param  \App\Models\Keyword $keyword
      * @return \Illuminate\Http\Response
      */
-    public function update(KeywordRequest $request, BlockedKeyword $keyword)
+    public function update(KeywordRequest $request, $id)
     {
+        $keyword = BlockedKeyword::find($id);
         $keyword->update($request->validated());
         return redirect()->back()->with('status', __('cp.update'));
     }

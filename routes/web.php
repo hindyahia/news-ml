@@ -44,7 +44,7 @@ Route::namespace('Admin')
         Route::post('Keywords/reset/{Keyword}', 'KeywordController@resetKeywords')->name('Keywords.reset');
     });
 
-Route::get('/', 'WebSite\HomeController@index');
+Route::get('/', 'WebSite\HomeController@index')->name('website.home');
 Route::get('post/{id}', 'WebSite\HomeController@single_post');
 Route::get('category/{id}', 'WebSite\HomeController@category');
 Route::get('bloger/search', 'WebSite\HomeController@search');

@@ -98,4 +98,6 @@ return [
     'users' => 'مستخدم',
     'categories' => 'تصنيف',
     'news' => 'خبر',
+    'confirmDeleteAll' => 'هل تريد الحذف',
+
 ];

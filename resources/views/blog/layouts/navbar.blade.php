@@ -63,7 +63,7 @@ _________________________________________________________ -->
 
         </div>
         <!--/.nav-collapse -->
-
+        @if(!request()->routeIs('website.home'))
         <div class="navbar-buttons">
 
 
@@ -75,7 +75,6 @@ _________________________________________________________ -->
             </div>
 
         </div>
-
         <div class="collapse clearfix" id="search">
             <form action="{{url('/bloger/search')}}" method="get" class="navbar-form">
                  <div class="input-group">
@@ -92,6 +91,7 @@ _________________________________________________________ -->
 
         </div>
         <!--/.nav-collapse -->
+        @endif
 
     </div>
     <!-- /.container -->

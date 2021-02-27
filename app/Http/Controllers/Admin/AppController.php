@@ -30,6 +30,11 @@ class AppController extends Controller
         $models = [
             'users' => 'App\Models\User',
             'admins' => 'App\Models\User',
+            'categories' => 'App\Models\Category',
+            'blocked-keywords' => 'App\Models\BlockedKeyword',
+            'contents' => 'App\Models\Content',
+//            'favorites' => 'App\Models\Favorite',
+            'keywords' => 'App\Models\Keyword',
         ];
 
 
