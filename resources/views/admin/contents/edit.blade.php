@@ -48,7 +48,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>{{__('cp.content')}} <span class="text-danger">*</span></label>
-                                        <textarea class="form-control form-control-solid" name="content" id="content" required>{{ old('content', @$item->content)}}</textarea>
+                                        <textarea class="form-control form-control-solid" required name="content" id="content" required>{{ old('content', @$item->content)}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>{{__('cp.category')}} <span class="text-danger">*</span></label>
-                                        <select name="category_id" class="form-control">
+                                        <select name="category_id" required class="form-control">
                                             @foreach($categories as $category)
                                                 <option value="{{$category->id}}" {{$item->category_id == $category->id ? 'selected' : ''}}>
                                                     {{$category->title}}
@@ -79,7 +79,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>{{__('cp.keyword')}} <span class="text-danger">*</span></label>
-                                        <select name="keyword_id" class="form-control">
+                                        <select name="keyword_id" required class="form-control">
                                             @foreach($keywords as $keyword)
                                                 <option value="{{$keyword->id}}"  {{$item->keyword_id == $keyword->id ? 'selected' : ''}}>
                                                     {{$keyword->title}}

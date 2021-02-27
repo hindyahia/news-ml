@@ -6,11 +6,11 @@ _________________________________________________________ -->
         <div class="navbar-header">
 
             <a class="navbar-brand home" href="{{url('/')}}" data-animate-hover="bounce">
-                <img src="{{url('shop/')}}/img/logo.png" alt="Obaju logo" class="hidden-xs">
-                <img src="{{url('shop/')}}/img/logo-small.png" alt="Obaju logo" class="visible-xs"><span
-                    class="sr-only">Obaju - go to homepage</span>
+                <img src="{{asset('admin_assets/logo-black.jpg')}}" style="height: 60px;" alt="News logo" class="hidden-xs">
+                <img src="{{asset('admin_assets/logo-black.jpg')}}" style="height: 60px;" alt="News logo" class="visible-xs"><span
+                    class="sr-only">News homepage</span>
             </a>
-            <div class="navbar-buttons">
+<!--            <div class="navbar-buttons">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
                     <span class="sr-only">Toggle navigation</span>
                     <i class="fa fa-align-justify"></i>
@@ -22,7 +22,7 @@ _________________________________________________________ -->
                 <a class="btn btn-default navbar-toggle" href="basket.html">
                     <i class="fa fa-shopping-cart"></i> <span class="hidden-xs">3 items in cart</span>
                 </a>
-            </div>
+            </div>-->
         </div>
         <!--/.navbar-header -->
 

@@ -29,7 +29,7 @@ class ContentRequest extends FormRequest
             'title' => 'required|string',
             'content' => 'required|string',
             'description' => 'required|string',
-            'image' => $is_required . '|image|mimes:jpeg,png,jpg,svg',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg',
             'category_id' => 'required',
             'keyword_id' => 'required',
         ];

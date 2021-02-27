@@ -8,7 +8,7 @@
         <div class="box">
             <h1>
 
-                    {{$tagname->title}}
+                {{$tagname->title}}
 
             </h1>
             {{--<p>Pellesasdntesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.--}}
@@ -23,19 +23,22 @@
                     <h2>
                         <a href="/post/{{ $post->id }}">{{ $post->title}}</a>
                     </h2>
-                    <p class="author-category">   @lang('cp.By') <a href="/post/{{ $post->id }}">{{$post->user->name}}</a>
+                    <p class="author-category">   @lang('cp.By') <a
+                            href="/post/{{ $post->id }}">{{$post->user->name}}</a>
                         @lang('cp.in'){{$post->created_at->toDayDateTimeString()}}
-                        <a href="{{url('/category/'.$post->category_id)}}">{{$post->category->title}}
-                        </a>
+                        @if($post->category)
+                            <a href="{{url('/category/'.$post->category_id)}}">{{$post->category->title}}
+                            </a>
+                        @endif
                     </p>
                     <hr/>
                     <p class="date-comments">
-                        <a href="/post/{{ $post->id }}" ><i
+                        <a href="/post/{{ $post->id }}"><i
                                 class="fa fa-calendar-o"></i> {{$post->created_at->toDayDateTimeString()}}</a>
 
                     </p>
                     <div class="image">
-                        <a href="/post/{{ $post->id }}"  >
+                        <a href="/post/{{ $post->id }}">
                             <img src="{{$post->image_url}}" class="img-responsive"
                                  alt="Example blog post alt"/>
                         </a>
@@ -49,11 +52,10 @@
 
             @endforeach
             <div class="pages" id="remove-row">
-                     {{$posts->links()}}
+                {{$posts->links()}}
             </div>
             <br/>
         </div>
-
 
 
     </div>
@@ -77,8 +79,8 @@
                 <ul class="nav nav-pills nav-stacked">
                     @foreach(categories() as $tag)
                         <li @if(request()->segment(3) == $tag->title) class="active" @endif>
-                            <a href="{{url('category/'.$tag->title)}}">
-                                    {{$tag->title}}
+                            <a href="{{url('category/'.$tag->id)}}">
+                                {{$tag->title}}
 
                             </a>
                         </li>
@@ -93,7 +95,7 @@
 
         <div class="banner">
             <a href="#">
-{{--                <img src="{{url('shop')}}/img/banner.jpg" alt="sales 2014" class="img-responsive">--}}
+                {{--                <img src="{{url('shop')}}/img/banner.jpg" alt="sales 2014" class="img-responsive">--}}
             </a>
         </div>
     </div>

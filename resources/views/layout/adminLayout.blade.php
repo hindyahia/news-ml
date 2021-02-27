@@ -32,7 +32,7 @@
 
 @yield('css')
 <!--end::Layout Themes-->
-    <link rel="shortcut icon" href="{{url('/admin_assets/media/logos/favicon.ico')}}"/>
+    <link rel="shortcut icon" href="{{asset('admin_assets/logo.png')}}  "/>
 
     {{--    @if(app()->getLocale() == 'ar')--}}
     <link href="{{asset('/admin_assets/plugins/global/fonts/keenthemes-icons/ki.rtl.css')}}" rel="stylesheet"
@@ -510,11 +510,12 @@
         <!--end::Content-->
             <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
                 <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
-                    <div class="text-dark order-2 order-md-1">
-                        <span class="text-muted font-weight-bold mr-2">{{date("Y")}}'&copy; Powered By'</span>
-                        <a href="#" target="_blank"
-                           class="text-dark-75 text-hover-primary">{{'Shadow Team'}}</a>
-                    </div>
+                        <div class="text-dark order-2 order-md-1">
+                            <span class="text-muted font-weight-bold mr-2">{{date("Y")}}'&copy; '</span>
+    {{--                        <span class="text-muted font-weight-bold mr-2">{{date("Y")}}'&copy; Powered By'</span>--}}
+                            <a href="#" target="_blank"
+                               class="text-dark-75 text-hover-primary"></a>
+                        </div>
                 </div>
             </div>
             <!--end::Footer-->

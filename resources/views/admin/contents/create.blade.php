@@ -67,7 +67,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>{{__('cp.category')}} <span class="text-danger">*</span></label>
-                                        <select name="category_id" class="form-control">
+                                        <select name="category_id" class="form-control" required>
                                             @foreach($categories as $category)
                                                 <option value="{{$category->id}}">
                                                     {{$category->title}}
@@ -80,7 +80,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>{{__('cp.keyword')}} <span class="text-danger">*</span></label>
-                                        <select name="keyword_id" class="form-control">
+                                        <select name="keyword_id" class="form-control" required>
                                             @foreach($keywords as $keyword)
                                                 <option value="{{$keyword->id}}">
                                                     {{$keyword->title}}
@@ -92,7 +92,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>{{__('cp.image')}} <span class="text-danger">*</span></label>
+                                        <label>{{__('cp.image')}}   </label>
                                         <input name="image" type="file" class="form-control">
                                     </div>
                                 </div>

@@ -12,7 +12,7 @@ class Content extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
-    public $appends = ['image_url'];
+    protected $appends = ['image_url'];
 
     public function setImageAttribute($value)
     {
@@ -20,7 +20,7 @@ class Content extends Model
     }
     public function getImageUrlAttribute()
     {
-        return empty($this->image) ? null : file_url($this->image);
+        return empty($this->image) ?asset('admin_assets/logo-black.jpg') : file_url($this->image);
     }
     public function user() {
         return $this->belongsTo(User::Class);
