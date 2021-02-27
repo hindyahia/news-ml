@@ -16,6 +16,7 @@ class HomeController extends Controller
 
         $data['news'] = $this->getNews();
 //        dd($data);
+//        dd($data);
        return view('blog.layouts.index')->with($data);
     }
 
@@ -24,6 +25,7 @@ class HomeController extends Controller
 
         $data['post'] = Content::find($id);
         $data['title'] = $data['post']->title;
+
         return view('blog.pages.single_post')->with($data);
     }
 

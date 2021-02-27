@@ -10,27 +10,37 @@
 
         <div id="load-data">
 
+
             @isset($news)
-                @foreach ($news as $key=>$items)
+                <div class="row">
 
-                    <h3 class="pb-5" style="    border-bottom: 2px solid #4fbfa8;
-    padding-bottom: 22px;">{{$key}}</h3>
-                    <hr>
-                    <br>
-                    @foreach($items as $item)
-                        <div class="post">
-                            <h2>
-                                <a target="_blank" href="{{$item->link}}">{{ $item->title}}</a>
-                            </h2>
+                    @foreach ($news as $items)
 
-                            <p class="read-more">
-                                <a target="_blank" href="{{$item->link}}"
-                                   class="btn btn-primary">{{ trans('cp.read_more') }}</a>
-                            </p>
-                        </div>
-                    @endforeach
+                        {{--       <h3 class="pb-5" style="    border-bottom: 2px solid #4fbfa8;
+               padding-bottom: 22px;">{{$key}}</h3>--}}
+                        {{-- <hr>
+                         <br>--}}
+
+                        @foreach($items as $one)
+                            <div class="col-md-6"  >
+
+                                <div class="post" style="height: 200px">
+                                    <h2>
+                                        <a target="_blank" href="{{$one->link}}" title="{{$one->title}}">
+                                            {{strlen(trim($one->title)) > 70  ? \Illuminate\Support\Str::substr($one->title,0,70) . "...": $one->title}}</a>
+                                    </h2>
+
+                                    <p class="read-more">
+                                        <a target="_blank" href="{{$one->link}}"
+                                           class="btn btn-primary">{{ trans('cp.read_more') }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        @endforeach
 
                 @endforeach
+                </div>
+
             @endisset
             @isset($posts)
 
