@@ -4,6 +4,7 @@ return [
     'website_name' => 'تفائل',
     'id' => '#',
     'add' => 'أضف',
+    'age' => 'عمر',
     'save' => 'حفظ',
     'create' => 'أنشئ',
     'update' => 'تحديث',
