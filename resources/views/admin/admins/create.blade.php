@@ -57,6 +57,16 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label>{{__('cp.lastname')}} <span class="text-danger">*</span></label>
+                                        <input  class="form-control form-control-solid"
+                                               name="lastname"
+                                               value="{{ old('lastname')}}" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label>{{__('cp.mobile')}} <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control form-control-solid"
                                                name="mobile"
